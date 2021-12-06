@@ -11,9 +11,9 @@ namespace ET
     {
         protected override async ETTask Run(AppStartInitFinish a)
         {
-            await FGUI.Instance.OpenAysnc(FGUIType.Backgound);
+            await FGUIComponent.Instance.OpenAysnc(FGUIType.Backgound);
             //游戏正式开始 这里放的是游戏主体的逻辑，依附在一个Scene上
-            await FGUI.Instance.OpenAysnc(FGUIType.Login);
+            await FGUIComponent.Instance.OpenAysnc(FGUIType.Login);
         }
     }
 }

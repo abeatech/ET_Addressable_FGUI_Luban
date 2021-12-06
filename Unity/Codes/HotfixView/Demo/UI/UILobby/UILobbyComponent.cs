@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace ET
 {
-	public class UILobbyComponent : FGUIComponent
+	public class UILobbyComponent : UIDefaultComponent
 	{
 		[FGUIObject]
 		public GButton Btn_EnterMap;

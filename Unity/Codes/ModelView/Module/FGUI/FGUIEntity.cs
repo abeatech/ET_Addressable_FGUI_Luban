@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 namespace ET
 {
 	[ObjectSystem]
-	public class UIAwakeSystem : AwakeSystem<FGUIEntity, Type,FGUIType>
+	public class UIAwakeSystem : AwakeSystem<FGUIEntity, Type, FGUIType>
 	{
-		public override void Awake(FGUIEntity self, Type type ,FGUIType eType)
+		public override void Awake(FGUIEntity self, Type type, FGUIType eType)
 		{
 			self.ComponentType = type;
 			self.UIType = eType;
 		}
 	}
 	public class FGUIEntity : Entity
-    {
-        public Entity UIComponent => GetComponent(ComponentType);
+	{
+		public Entity UIComponent => GetComponent(ComponentType);
 		public GObject GObject => GetComponent<GObjectComponent>().GObject;
 		public Type ComponentType;
 		public FGUIType UIType;
-    }
+	}
 }

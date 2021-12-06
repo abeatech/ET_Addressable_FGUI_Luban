@@ -64,8 +64,8 @@
     <Compile Include="Codes\ModelView\Demo\Scene\SceneChangeComponent.cs" />
     <Compile Include="Codes\ModelView\Demo\Unit\AnimatorComponent.cs" />
     <Compile Include="Codes\ModelView\Demo\Unit\GameObjectComponent.cs" />
-    <Compile Include="Codes\ModelView\Module\FGUI\FGUI.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\UIDefaultComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\GObjectComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEvent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEventComponent.cs" />

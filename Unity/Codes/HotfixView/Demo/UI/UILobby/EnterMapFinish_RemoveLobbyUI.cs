@@ -16,8 +16,8 @@
 				sceneChangeComponent.Dispose();
 			}
             args.ZoneScene.AddComponent<OperaComponent>();
-			FGUI.Instance.Close(FGUIType.Lobby);
-			FGUI.Instance.Close(FGUIType.Backgound);
+			FGUIComponent.Instance.Close(FGUIType.Lobby);
+			FGUIComponent.Instance.Close(FGUIType.Backgound);
 		}
 	}
 }
