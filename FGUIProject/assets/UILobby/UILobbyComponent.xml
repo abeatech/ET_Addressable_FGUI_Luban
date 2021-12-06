@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1660,750">
+  <displayList>
+    <image id="n2_zo1j" name="n2" src="zo1j2" fileName="images/developon_back.png" pkg="d3gnvpdk" xy="305,121" size="1050,426"/>
+    <text id="n0_zo1j" name="Txt_Title" xy="489,158" size="681,84" fontSize="53" align="center" vAlign="middle" autoSize="none" text="点击进入Demo场景"/>
+    <component id="n1_zo1j" name="Btn_EnterMap" src="otnu0" fileName="NormalBtn1.xml" pkg="d3gnvpdk" xy="715,286" size="229,88">
+      <Button title="进入地图"/>
+    </component>
+  </displayList>
+</component>

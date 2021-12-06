@@ -22,12 +22,12 @@ namespace ET
                             .WithParsed(o => { options = o; });
 
                     // 获取当前进程的RobotScene
-                    using (ListComponent<StartSceneConfig> thisProcessRobotScenes = ListComponent<StartSceneConfig>.Create())
+                    using (ListComponent<StartSceneData> thisProcessRobotScenes = ListComponent<StartSceneData>.Create())
                     {
-                        List<StartSceneConfig> robotSceneConfigs = StartSceneConfigCategory.Instance.Robots;
-                        foreach (StartSceneConfig robotSceneConfig in robotSceneConfigs)
+                        List<StartSceneData> robotSceneConfigs = StartServerComponent.Instance.Robots;
+                        foreach (StartSceneData robotSceneConfig in robotSceneConfigs)
                         {
-                            if (robotSceneConfig.Process != Game.Options.Process)
+                            if (robotSceneConfig.Meta.Process != Game.Options.Process)
                             {
                                 continue;
                             }
@@ -38,8 +38,8 @@ namespace ET
                         for (int i = 0; i < options.Num; ++i)
                         {
                             int index = i % thisProcessRobotScenes.Count;
-                            StartSceneConfig robotSceneConfig = thisProcessRobotScenes[index];
-                            Scene robotScene = Game.Scene.Get(robotSceneConfig.Id);
+                            StartSceneData robotSceneConfig = thisProcessRobotScenes[index];
+                            Scene robotScene = Game.Scene.Get(robotSceneConfig.Meta.Id);
                             RobotManagerComponent robotManagerComponent = robotScene.GetComponent<RobotManagerComponent>();
                             Scene robot = await robotManagerComponent.NewRobot(Game.Options.Process * 10000 + i);
                             Log.Console($"create robot {robot.Zone}");

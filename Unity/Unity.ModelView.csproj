@@ -57,7 +57,19 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Codes\ModelView\**\*.cs" />
+    <Compile Include="Codes\ModelView\Demo\Camera\CameraComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Entry.cs" />
+    <Compile Include="Codes\ModelView\Demo\Global\GlobalComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Opera\OperaComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Scene\SceneChangeComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Unit\AnimatorComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Unit\GameObjectComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\FGUI.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\FGUIComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\FGUIEvent.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\FGUIEventComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\FGUIEntity.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\FGUIType.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
     </Reference>

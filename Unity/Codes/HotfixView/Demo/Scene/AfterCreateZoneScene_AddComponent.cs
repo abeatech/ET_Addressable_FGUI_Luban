@@ -5,8 +5,8 @@ namespace ET
         protected override async ETTask Run(EventType.AfterCreateZoneScene args)
         {
             Scene zoneScene = args.ZoneScene;
-            zoneScene.AddComponent<UIEventComponent>();
-            zoneScene.AddComponent<UIComponent>();
+            FGUI fgui = zoneScene.AddComponent<FGUI>();
+            fgui.AddComponent<FGUIEventComponent>();
             await ETTask.CompletedTask;
         }
     }

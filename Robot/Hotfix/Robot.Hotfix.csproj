@@ -82,6 +82,15 @@
         <Compile Include="..\..\Server\Hotfix\Config\**\*.cs">
             <Link>Config\%(RecursiveDir)%(FileName)%(Extension)</Link>
         </Compile>
+
+        <Compile Include="..\..\Server\Hotfix\StartServer\**\*.cs">
+            <Link>StartServer\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Remove="..\..\Server\Hotfix\Config\ConfigComponent_SetConfigLoader_Awake.cs" />
+      <Compile Remove="..\..\Server\Hotfix\Config\ConfigLoader.cs" />
     </ItemGroup>
     
     <ItemGroup>

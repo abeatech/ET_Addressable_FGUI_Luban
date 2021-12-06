@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="dpl1n6jq">
+  <resources>
+    <image id="otnu0" name="boot_tock_box.png" path="/"/>
+    <image id="otnu1" name="button_big.png" path="/"/>
+    <image id="otnu2" name="button_big_2t.png" path="/"/>
+    <image id="otnu3" name="button_big_back.png" path="/"/>
+    <image id="otnu4" name="button_big_bule.png" path="/"/>
+    <image id="otnu5" name="button_big_bule_2t.png" path="/"/>
+    <image id="otnu6" name="button_big_t3.png" path="/"/>
+    <image id="otnu7" name="button_big2.png" path="/"/>
+    <image id="otnu8" name="button_small.png" path="/"/>
+    <image id="otnu9" name="button_small_t2.png" path="/"/>
+    <image id="otnua" name="button_small_t3.png" path="/"/>
+    <image id="otnub" name="card_i_button_g1.png" path="/"/>
+    <image id="otnuc" name="card_i_button_g2.png" path="/"/>
+    <image id="otnud" name="card_i_button1.png" path="/"/>
+    <image id="otnue" name="card_i_button2.png" path="/"/>
+    <image id="otnuf" name="card_i_button3.png" path="/"/>
+    <image id="otnug" name="developon_back.png" path="/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

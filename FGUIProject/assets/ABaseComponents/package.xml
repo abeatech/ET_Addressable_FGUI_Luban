@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="d3gnvpdk">
+  <resources>
+    <component id="otnu0" name="NormalBtn1.xml" path="/" exported="true"/>
+    <image id="otnu1" name="button_big.png" path="/images/" exported="true"/>
+    <image id="otnu2" name="button_big2.png" path="/images/" exported="true"/>
+    <image id="otnu3" name="button_big_2t.png" path="/images/" exported="true"/>
+    <image id="otnu4" name="button_big_back.png" path="/images/" exported="true"/>
+    <image id="otnu5" name="button_big_bule.png" path="/images/" exported="true"/>
+    <image id="otnu6" name="button_big_bule_2t.png" path="/images/" exported="true"/>
+    <image id="otnu7" name="button_big_t3.png" path="/images/" exported="true"/>
+    <image id="otnu8" name="button_small.png" path="/images/" exported="true"/>
+    <image id="otnu9" name="button_small_t2.png" path="/images/" exported="true"/>
+    <image id="otnua" name="button_small_t3.png" path="/images/" exported="true"/>
+    <image id="otnub" name="card_i_button1.png" path="/images/" exported="true"/>
+    <image id="otnuc" name="card_i_button2.png" path="/images/" exported="true"/>
+    <image id="otnud" name="card_i_button3.png" path="/images/" exported="true"/>
+    <image id="otnue" name="card_i_button_g1.png" path="/images/" exported="true"/>
+    <image id="otnuf" name="card_i_button_g2.png" path="/images/" exported="true"/>
+    <component id="zo1jg" name="UIBackgroundComponent.xml" path="/" exported="true"/>
+    <image id="zo1jh" name="pvp_back.png" path="/images/"/>
+    <image id="zo1ji" name="pvp_back.png" path="/"/>
+    <image id="zo1j2" name="developon_back.png" path="/images/" exported="true"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

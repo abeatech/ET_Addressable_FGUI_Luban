@@ -24,15 +24,15 @@ namespace ET
         public static void Start(this WatcherComponent self, int createScenes = 0)
         {
             string[] localIP = NetworkHelper.GetAddressIPs();
-            var processConfigs = StartProcessConfigCategory.Instance.GetAll();
-            foreach (StartProcessConfig startProcessConfig in processConfigs.Values)
+            var processConfigs = StartServerComponent.Instance.ProcessDatas;
+            foreach (StartProcessData startProcessConfig in processConfigs.Values)
             {
                 if (!WatcherHelper.IsThisMachine(startProcessConfig.InnerIP, localIP))
                 {
                     continue;
                 }
-                Process process = WatcherHelper.StartProcess(startProcessConfig.Id, createScenes);
-                self.Processes.Add(startProcessConfig.Id, process);
+                Process process = WatcherHelper.StartProcess(startProcessConfig.Meta.Id, createScenes);
+                self.Processes.Add(startProcessConfig.Meta.Id, process);
             }
         }
     }

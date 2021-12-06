@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1660,750">
+  <controller name="Ctrl_Page" pages="0,Login,1,Register" selected="0"/>
+  <displayList>
+    <image id="n11_otnu" name="n11" src="otnu3" fileName="developon_back.png" xy="596,125" size="467,496" group="n6_otnu"/>
+    <graph id="n8_otnu" name="n8" xy="628,315" size="404,50" group="n6_otnu" type="rect"/>
+    <graph id="n7_otnu" name="n7" xy="629,245" size="404,50" group="n6_otnu" type="rect"/>
+    <text id="n1_otnu" name="Input_Account" xy="630,245" size="400,50" group="n6_otnu" fontSize="30" align="center" vAlign="middle" autoSize="none" singleLine="true" text="" input="true" prompt="[color=#CCCCCC]请输入账号[/color]" restrict="[^\\t]"/>
+    <text id="n2_otnu" name="Input_Password" xy="630,315" size="400,50" group="n6_otnu" fontSize="30" align="center" vAlign="middle" autoSize="none" text="" input="true" prompt="[color=#CCCCCC]请输入密码[/color]" password="true"/>
+    <component id="n10_otnu" name="Btn_Login" src="otnu0" fileName="NormalBtn1.xml" pkg="d3gnvpdk" xy="695,542" group="n6_otnu">
+      <Button title="登陆"/>
+    </component>
+    <component id="n25_zo1j" name="Btn_ToRegister" src="otnu0" fileName="NormalBtn1.xml" pkg="d3gnvpdk" xy="855,543" size="146,42" group="n6_otnu">
+      <Button title="注册账号"/>
+    </component>
+    <group id="n6_otnu" name="n6" xy="596,125" size="467,496" advanced="true">
+      <gearDisplay controller="Ctrl_Page" pages="0"/>
+    </group>
+    <image id="n13_zo1j" name="n13" src="otnu3" fileName="developon_back.png" xy="596,132" size="467,496" group="n20_zo1j"/>
+    <graph id="n14_zo1j" name="n14" xy="628,322" size="404,50" group="n20_zo1j" type="rect"/>
+    <graph id="n23_zo1j" name="n23" xy="627,389" size="404,50" group="n20_zo1j" type="rect"/>
+    <graph id="n15_zo1j" name="n15" xy="629,252" size="404,50" group="n20_zo1j" type="rect"/>
+    <text id="n17_zo1j" name="Input_RegAccount" xy="630,252" size="400,50" group="n20_zo1j" fontSize="30" align="center" vAlign="middle" autoSize="none" text="" input="true" prompt="[color=#CCCCCC]请输入账号[/color]"/>
+    <text id="n18_zo1j" name="Input_RegPassword" xy="630,322" size="400,50" group="n20_zo1j" fontSize="30" align="center" vAlign="middle" autoSize="none" text="" input="true" prompt="[color=#CCCCCC]请输入密码[/color]" password="true"/>
+    <text id="n22_zo1j" name="Input_RegPassword2" xy="629,389" size="400,50" group="n20_zo1j" fontSize="30" align="center" vAlign="middle" autoSize="none" text="" input="true" prompt="[color=#CCCCCC]请输入密码[/color]" password="true"/>
+    <component id="n19_zo1j" name="Btn_Register" src="otnu0" fileName="NormalBtn1.xml" pkg="d3gnvpdk" xy="686,555" group="n20_zo1j">
+      <Button title="注册"/>
+    </component>
+    <component id="n24_zo1j" name="Btn_ToLogin" src="otnu0" fileName="NormalBtn1.xml" pkg="d3gnvpdk" xy="847,555" size="146,42" group="n20_zo1j">
+      <Button title="返回登陆"/>
+    </component>
+    <group id="n20_zo1j" name="n20" xy="596,132" size="467,496" advanced="true">
+      <gearDisplay controller="Ctrl_Page" pages="1"/>
+    </group>
+    <text id="n0_otnu" name="Txt_Tips" xy="630,460" size="400,50" fontSize="30" align="center" ubb="true" autoSize="none" singleLine="true" text=""/>
+  </displayList>
+</component>

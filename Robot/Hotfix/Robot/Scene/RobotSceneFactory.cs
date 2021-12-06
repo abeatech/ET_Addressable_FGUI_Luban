@@ -9,7 +9,7 @@ namespace ET
             int zone,
             string name,
             SceneType sceneType,
-            StartSceneConfig startSceneConfig = null
+            StartSceneData startSceneConfig = null
         )
         {
             await ETTask.CompletedTask;

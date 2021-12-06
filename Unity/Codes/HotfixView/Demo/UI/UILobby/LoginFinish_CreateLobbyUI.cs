@@ -6,7 +6,8 @@ namespace ET
 	{
 		protected override async ETTask Run(EventType.LoginFinish args)
 		{
-			await UIHelper.Create(args.ZoneScene, UIType.UILobby);
+			FGUI.Instance.Close(FGUIType.Login);
+			await FGUI.Instance.OpenAysnc(FGUIType.Lobby);
 		}
 	}
 }

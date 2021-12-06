@@ -1,0 +1,21 @@
+<module name="Enums">
+	<enum name="SceneType" externaltype="et_scene_type">
+		<var name="Process" value="0"/>
+		<var name="Manager" value="1"/>
+		<var name="Realm" value="2"/>
+		<var name="Gate" value="3"/>
+		<var name="Http" value="4"/>
+		<var name="Location" value="5"/>
+		<var name="Map" value="6"/>
+		<var name="Zone" value="30"/>
+		<var name="Login" value="31"/>
+		<var name="Robot" value="32"/>
+	</enum>
+
+	<externaltype name="et_scene_type">
+		<mapper lan="cs" selector="dotnet_cs">
+			<typename>ET.SceneType</typename>
+		</mapper>
+	</externaltype>
+</module>
+

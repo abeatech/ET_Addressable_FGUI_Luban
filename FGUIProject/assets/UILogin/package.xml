@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="afl3iyiq">
+  <resources>
+    <component id="otnu1" name="UILoginComponent.xml" path="/" exported="true"/>
+    <image id="otnu3" name="developon_back.png" path="/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

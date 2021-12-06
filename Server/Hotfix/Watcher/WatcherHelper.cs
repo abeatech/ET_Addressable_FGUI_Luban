@@ -6,13 +6,13 @@ namespace ET
 {
     public static class WatcherHelper
     {
-        public static StartMachineConfig GetThisMachineConfig()
+        public static Cfg.StartServer.StartMachine GetThisMachineConfig()
         {
             string[] localIP = NetworkHelper.GetAddressIPs();
-            StartMachineConfig startMachineConfig = null;
-            foreach (StartMachineConfig config in StartMachineConfigCategory.Instance.GetAll().Values)
+            Cfg.StartServer.StartMachine startMachineConfig = null;
+            foreach (Cfg.StartServer.StartMachine config in ConfigUtil.Tables.TbStartMachine.DataList)
             {
-                if (!WatcherHelper.IsThisMachine(config.InnerIP, localIP))
+                if (!WatcherHelper.IsThisMachine(config.InnerIp, localIP))
                 {
                     continue;
                 }
@@ -27,23 +27,23 @@ namespace ET
 
             return startMachineConfig;
         }
-        
+
         public static bool IsThisMachine(string ip, string[] localIPs)
         {
-            if (ip != "127.0.0.1" && ip != "0.0.0.0" && !((IList) localIPs).Contains(ip))
+            if (ip != "127.0.0.1" && ip != "0.0.0.0" && !((IList)localIPs).Contains(ip))
             {
                 return false;
             }
             return true;
         }
-        
+
         public static Process StartProcess(int processId, int createScenes = 0)
         {
-            StartProcessConfig startProcessConfig = StartProcessConfigCategory.Instance.Get(processId);
+            StartProcessData startProcessData = StartServerComponent.Instance.GetProcessDataById(processId);
             const string exe = "dotnet";
-            string arguments = $"{startProcessConfig.AppName}.dll" + 
-                    $" --Process={startProcessConfig.Id}" +
-                    $" --AppType={startProcessConfig.AppName}" +  
+            string arguments = $"{startProcessData.Meta.AppName}.dll" +
+                    $" --Process={startProcessData.Meta.Id}" +
+                    $" --AppType={startProcessData.Meta.AppName}" +
                     $" --Develop={Game.Options.Develop}" +
                     $" --CreateScenes={createScenes}" +
                     $" --LogLevel={Game.Options.LogLevel}";

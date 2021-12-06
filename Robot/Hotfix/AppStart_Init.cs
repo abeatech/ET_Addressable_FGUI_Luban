@@ -1,3 +1,6 @@
+using Bright.Serialization;
+using System.IO;
+
 namespace ET
 {
     public class AppStart_Init: AEvent<EventType.AppStart>
@@ -9,7 +12,10 @@ namespace ET
 
             // 加载配置
             Game.Scene.AddComponent<ConfigComponent>();
-            await ConfigComponent.Instance.LoadAsync();
+            await ConfigComponent.Instance.LoadAsync((file) =>
+            {
+                return new ByteBuf(File.ReadAllBytes($"../Server/ConfigBin/{file}.bin"));
+            });
             
             Game.Scene.AddComponent<OpcodeTypeComponent>();
             Game.Scene.AddComponent<MessageDispatcherComponent>();
@@ -20,10 +26,10 @@ namespace ET
             Game.Scene.AddComponent<RobotCaseDispatcherComponent>();
             Game.Scene.AddComponent<RobotCaseComponent>();
             
-            var processScenes = StartSceneConfigCategory.Instance.GetByProcess(Game.Options.Process);
-            foreach (StartSceneConfig startConfig in processScenes)
+            var processScenes = StartServerComponent.Instance.GetByProcess(Game.Options.Process);
+            foreach (StartSceneData startConfig in processScenes)
             {
-                await RobotSceneFactory.Create(Game.Scene, startConfig.Id, startConfig.InstanceId, startConfig.Zone, startConfig.Name, startConfig.Type, startConfig);
+                await RobotSceneFactory.Create(Game.Scene, startConfig.Meta.Id, startConfig.InstanceId, startConfig.Meta.Zone, startConfig.Meta.Name, startConfig.Meta.SceneType, startConfig);
             }
             
             if (Game.Options.Console == 1)
