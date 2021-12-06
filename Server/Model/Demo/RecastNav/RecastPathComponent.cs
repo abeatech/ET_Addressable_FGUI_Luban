@@ -17,7 +17,7 @@ namespace ET
         /// <summary>
         /// 5v5地图的Nav数据路径
         /// </summary>
-        public const string Moba5V5MapNavDataPath = "../Config/RecastNavData/solo_navmesh.bin";
+        public const string Moba5V5MapNavDataPath = "../Tools/RecastNavData/solo_navmesh.bin";
 
         /// <summary>
         /// 寻路处理者（可用于拓展多线程，参考A*插件）

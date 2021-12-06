@@ -84,12 +84,16 @@ namespace ET
                         //如果没指定的类就默认用FGUIComponent
                         type = typeof(FGUIComponent);
                     }
-                    FGUIEntity view = self.AddChild<FGUIEntity>();
-                    FGUIComponent ui = view.AddComponent(type) as FGUIComponent;
-                    ui.Root = gCom;
-                    ui.uiType = uiType;
-                    FGUIEventComponent.Instance.OnCreate(ui);
-                    FGUIEventComponent.Instance.OnShow(ui);
+                    FGUIEntity view = self.AddChild<FGUIEntity,Type>(type);
+                    FGUIComponent component = view.AddComponent(type) as FGUIComponent;
+                    if(component == null)
+                    {
+                        Log.Error($"打开UI错误，类型为空: {type.Name}");
+                    }
+                    component.Root = gCom;
+                    component.uiType = uiType;
+                    FGUIEventComponent.Instance.OnCreate(component);
+                    FGUIEventComponent.Instance.OnShow(component);
                     _uiDict.Add(uiType, view);
                 });
             }
@@ -109,6 +113,8 @@ namespace ET
                 }
 
                 FGUIEntity ui = _uiDict[uiType];
+                UnityEngine.Debug.Log($"=================NULL?{ui == null}");
+                UnityEngine.Debug.Log($"================22=NULL?{ui.FGUI == null}");
                 FGUIEventComponent.Instance.OnHide(ui.FGUI);
                 FGUIEventComponent.Instance.OnDestroy(ui.FGUI);
                 GRoot.inst.RemoveChild(ui.FGUI.Root, true);

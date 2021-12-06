@@ -84,7 +84,7 @@ namespace ET
                     return ((Func<KeyValuePair<int, int>, KeyValuePair<int, int>, int>)act)(x, y);
                 });
             });
-            
+            RegisterCustomMethodDelegates(appdomain);
             // 注册适配器
             RegisterAdaptor(appdomain);
             
@@ -104,7 +104,43 @@ namespace ET
             }
             //ILRuntime.Runtime.Generated.CLRBindings.Initialize(appdomain);
         }
-        
+        public static void RegisterCustomMethodDelegates(ILRuntime.Runtime.Enviorment.AppDomain appdomain)
+        {
+
+            appdomain.DelegateManager.RegisterMethodDelegate<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<TextAsset>>();
+            appdomain.DelegateManager.RegisterMethodDelegate<System.String, System.String, System.Type, FairyGUI.PackageItem>();
+            appdomain.DelegateManager.RegisterDelegateConvertor<FairyGUI.UIPackage.LoadResourceAsync>((act) =>
+            {
+                return new FairyGUI.UIPackage.LoadResourceAsync((name, extension, type, item) =>
+                {
+                    ((Action<System.String, System.String, System.Type, FairyGUI.PackageItem>)act)(name, extension, type, item);
+                });
+            });
+            appdomain.DelegateManager.RegisterMethodDelegate<FairyGUI.GObject>();
+            appdomain.DelegateManager.RegisterDelegateConvertor<FairyGUI.UIPackage.CreateObjectCallback>((act) =>
+            {
+                return new FairyGUI.UIPackage.CreateObjectCallback((result) =>
+                {
+                    ((Action<FairyGUI.GObject>)act)(result);
+                });
+            });
+            appdomain.DelegateManager.RegisterMethodDelegate<FairyGUI.EventContext>();
+            appdomain.DelegateManager.RegisterDelegateConvertor<FairyGUI.EventCallback0>((act) =>
+            {
+                return new FairyGUI.EventCallback0(() =>
+                {
+                    ((Action)act)();
+                });
+            });
+            appdomain.DelegateManager.RegisterDelegateConvertor<FairyGUI.EventCallback1>((act) =>
+            {
+                return new FairyGUI.EventCallback1((context) =>
+                {
+                    ((Action<FairyGUI.EventContext>)act)(context);
+                });
+            });
+            appdomain.DelegateManager.RegisterMethodDelegate<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<UnityEngine.GameObject>>();
+        }
         public static void RegisterAdaptor(ILRuntime.Runtime.Enviorment.AppDomain appdomain)
         {
             //注册自己写的适配器

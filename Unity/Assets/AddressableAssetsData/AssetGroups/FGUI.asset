@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: FGUI
+  m_EditorClassIdentifier: 
+  m_GroupName: FGUI
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f7ea34f9aede78340aebb6b6150f22e8
+  m_SerializeEntries:
+  - m_GUID: 985bb3ce80409cb4f82cf962390812b7
+    m_Address: ABaseComponents_atlas0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e0b793e94066b54ea51f3c742a94965
+    m_Address: ABaseComponents_fui
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 115e25ba431740e4dbfe51eeee1ad035
+    m_Address: ACommonResources_fui
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e9e7d7cfa816604093baed37c2158db
+    m_Address: UILobby_fui
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 644ebe33288c8254ea0399142ccc6f07
+    m_Address: UILogin_atlas0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d28d924f11e081c42813e121bb6b8eaf
+    m_Address: UILogin_fui
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a89af19382b7a7c419e37936dfa2edeb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ea2dfc152db48ac42807299f05d174b7, type: 2}
+    - {fileID: 11400000, guid: daacce78303831141b10a12ffd076e51, type: 2}

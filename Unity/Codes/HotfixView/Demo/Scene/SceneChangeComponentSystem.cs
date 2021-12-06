@@ -1,12 +1,14 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace ET
 {
-    public class SceneChangeComponentUpdateSystem: UpdateSystem<SceneChangeComponent>
+    public class SceneChangeComponentUpdateSystem : UpdateSystem<SceneChangeComponent>
     {
         public override void Update(SceneChangeComponent self)
         {
-            if (!self.loadMapOperation.isDone)
+            if (self.loadMapOperation == null ||!self.loadMapOperation.isDone)
             {
                 return;
             }
@@ -37,10 +39,9 @@ namespace ET
         public static async ETTask ChangeSceneAsync(this SceneChangeComponent self, string sceneName)
         {
             self.tcs = ETTask.Create(true);
-            // 加载map
-            self.loadMapOperation = SceneManager.LoadSceneAsync(sceneName);
-            //this.loadMapOperation.allowSceneActivation = false;
-            await self.tcs;
+            // 加载scene
+            var instance = await AddressableComponent.Instance.LoadSceneByPathAsync(sceneName, out AsyncOperationHandle<SceneInstance> sceneInstanceHandle);
+            AddressableComponent.Instance.UnLoadSceneAsync(instance).Coroutine();
         }
         
         public static int Process(this SceneChangeComponent self)

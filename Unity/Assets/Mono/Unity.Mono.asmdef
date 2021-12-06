@@ -2,7 +2,9 @@
     "name": "Unity.Mono",
     "rootNamespace": "",
     "references": [
-        "Unity.ThirdParty"
+        "Unity.ThirdParty",
+        "Unity.ResourceManager",
+        "Unity.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

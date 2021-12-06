@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Config
+  m_EditorClassIdentifier: 
+  m_GroupName: Config
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b21b7383ddcd39e469ff9923843faf42
+  m_SerializeEntries:
+  - m_GUID: fe673316f5b469c4ea563f43a340c44d
+    m_Address: demo_tbaimetas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+  - m_GUID: c39a5f5c6eddebe49a02d51a1203d8cd
+    m_Address: demo_tbunitmeta
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+  - m_GUID: bf6db01da00b3c843aac9af49c47811a
+    m_Address: fgui_tbfguiconfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+  - m_GUID: 39bc1c8ffc71e95469b58c408c9e9ce7
+    m_Address: global_tbglobal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+  - m_GUID: 115b3b2401831b547a7e66fd71224f8a
+    m_Address: startserver_tbstartmachine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+  - m_GUID: 56bfa4e9a42f4504399ac824840ee11a
+    m_Address: startserver_tbstartprocess
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+  - m_GUID: fe032e12e92157549af8f8d5d33d0d45
+    m_Address: startserver_tbstartscene
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+  - m_GUID: 748619e8020d9434e925fb2fd8828d38
+    m_Address: startserver_tbstartzone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a89af19382b7a7c419e37936dfa2edeb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c8a1e0e73ead7144284984595db66d62, type: 2}
+    - {fileID: 11400000, guid: ea1612497af743e45ad25c501017b6a8, type: 2}

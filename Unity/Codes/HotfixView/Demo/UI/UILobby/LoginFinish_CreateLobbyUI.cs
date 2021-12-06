@@ -6,6 +6,7 @@ namespace ET
 	{
 		protected override async ETTask Run(EventType.LoginFinish args)
 		{
+            Scene zoneScene = args.ZoneScene;
 			FGUI.Instance.Close(FGUIType.Login);
 			await FGUI.Instance.OpenAysnc(FGUIType.Lobby);
 		}

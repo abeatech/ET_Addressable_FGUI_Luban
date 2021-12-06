@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.AddressableAssets;
 
 namespace ET
 {
@@ -16,61 +17,60 @@ namespace ET
 		public Action OnApplicationQuit;
 
 		private Assembly assembly;
-		
+
 		private Type[] allTypes;
 
 		private CodeLoader()
 		{
 		}
-		
-		public void Start()
+
+		public async void Start()
 		{
 			switch (Init.Instance.CodeMode)
 			{
 				case CodeMode.Mono:
-				{
-					Dictionary<string, UnityEngine.Object> dictionary = AssetsBundleHelper.LoadBundle("code.unity3d");
-					byte[] assBytes = ((TextAsset)dictionary["Code.dll"]).bytes;
-					byte[] pdbBytes = ((TextAsset)dictionary["Code.pdb"]).bytes;
-					
-					assembly = Assembly.Load(assBytes, pdbBytes);
-					this.allTypes = assembly.GetTypes();
-					IStaticMethod start = new MonoStaticMethod(assembly, "ET.Entry", "Start");
-					start.Run();
-					break;
-				}
+					{
+						TextAsset dll = Addressables.LoadAssetAsync<TextAsset>("Code.dll").WaitForCompletion();
+						TextAsset pdb = Addressables.LoadAssetAsync<TextAsset>("Code.pdb").WaitForCompletion();
+						byte[] assBytes = dll.bytes;
+						byte[] pdbBytes = pdb.bytes;
+
+						assembly = Assembly.Load(assBytes, pdbBytes);
+						this.allTypes = assembly.GetTypes();
+						IStaticMethod start = new MonoStaticMethod(assembly, "ET.Entry", "Start");
+						start.Run();
+						break;
+					}
 				case CodeMode.ILRuntime:
-				{
-					Dictionary<string, UnityEngine.Object> dictionary = AssetsBundleHelper.LoadBundle("code.unity3d");
-					byte[] assBytes = ((TextAsset)dictionary["Code.dll"]).bytes;
-					byte[] pdbBytes = ((TextAsset)dictionary["Code.pdb"]).bytes;
-					
-					//byte[] assBytes = File.ReadAllBytes(Path.Combine("../Unity/", Define.BuildOutputDir, "Code.dll"));
-					//byte[] pdbBytes = File.ReadAllBytes(Path.Combine("../Unity/", Define.BuildOutputDir, "Code.pdb"));
-				
-					ILRuntime.Runtime.Enviorment.AppDomain appDomain = new ILRuntime.Runtime.Enviorment.AppDomain();
-					MemoryStream assStream = new MemoryStream(assBytes);
-					MemoryStream pdbStream = new MemoryStream(pdbBytes);
-					appDomain.LoadAssembly(assStream, pdbStream, new ILRuntime.Mono.Cecil.Pdb.PdbReaderProvider());
+					{
+						TextAsset dll = Addressables.LoadAssetAsync<TextAsset>("Code.dll").WaitForCompletion();
+						TextAsset pdb = Addressables.LoadAssetAsync<TextAsset>("Code.pdb").WaitForCompletion();
+						byte[] assBytes = dll.bytes;
+						byte[] pdbBytes = pdb.bytes;
 
-					ILHelper.InitILRuntime(appDomain);
+						ILRuntime.Runtime.Enviorment.AppDomain appDomain = new ILRuntime.Runtime.Enviorment.AppDomain();
+						MemoryStream assStream = new MemoryStream(assBytes);
+						MemoryStream pdbStream = new MemoryStream(pdbBytes);
+						appDomain.LoadAssembly(assStream, pdbStream, new ILRuntime.Mono.Cecil.Pdb.PdbReaderProvider());
 
-					this.allTypes = appDomain.LoadedTypes.Values.Select(x => x.ReflectionType).ToArray();
-					IStaticMethod start = new ILStaticMethod(appDomain, "ET.Entry", "Start", 0);
-					start.Run();
-					break;
-				}
+						ILHelper.InitILRuntime(appDomain);
+
+						this.allTypes = appDomain.LoadedTypes.Values.Select(x => x.ReflectionType).ToArray();
+						IStaticMethod start = new ILStaticMethod(appDomain, "ET.Entry", "Start", 0);
+						start.Run();
+						break;
+					}
 				case CodeMode.Reload:
-				{
-					byte[] assBytes = File.ReadAllBytes(Path.Combine(Define.BuildOutputDir, "Data.dll"));
-					byte[] pdbBytes = File.ReadAllBytes(Path.Combine(Define.BuildOutputDir, "Data.pdb"));
-					
-					assembly = Assembly.Load(assBytes, pdbBytes);
-					LoadHotfix();
-					IStaticMethod start = new MonoStaticMethod(assembly, "ET.Entry", "Start");
-					start.Run();
-					break;
-				}
+					{
+						byte[] assBytes = File.ReadAllBytes(Path.Combine(Define.BuildOutputDir, "Data.dll"));
+						byte[] pdbBytes = File.ReadAllBytes(Path.Combine(Define.BuildOutputDir, "Data.pdb"));
+
+						assembly = Assembly.Load(assBytes, pdbBytes);
+						LoadHotfix();
+						IStaticMethod start = new MonoStaticMethod(assembly, "ET.Entry", "Start");
+						start.Run();
+						break;
+					}
 			}
 		}
 
@@ -92,7 +92,7 @@ namespace ET
 			byte[] pdbBytes = File.ReadAllBytes(Path.Combine(Define.BuildOutputDir, $"{logicName}.pdb"));
 
 			Assembly hotfixAssembly = Assembly.Load(assBytes, pdbBytes);
-			
+
 			List<Type> listType = new List<Type>();
 			listType.AddRange(this.assembly.GetTypes());
 			listType.AddRange(hotfixAssembly.GetTypes());

@@ -340,7 +340,7 @@ namespace ET
         {
             if (item.type == PackageItemType.Atlas)
             {
-                Texture t = await Addressables.LoadAssetAsync<Texture>(name).Task;
+                Texture t = await Addressables.LoadAssetAsync<Texture>(name.Replace("_fui","")).Task;
                 item.owner.SetItemAsset(item, t, DestroyMethod.Custom);
             }
         }
