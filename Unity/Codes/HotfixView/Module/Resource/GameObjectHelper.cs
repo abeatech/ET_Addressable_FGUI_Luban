@@ -5,16 +5,9 @@ namespace ET
 {
 	public static class GameObjectHelper
 	{
-		public static T Get<T>(this GameObject gameObject, string key) where T : class
+		public static GameObject Instantiate(GameObject prefab , Transform parent,bool worldPositionStays)
 		{
-			try
-			{
-				return gameObject.GetComponent<ReferenceCollector>().Get<T>(key);
-			}
-			catch (Exception e)
-			{
-				throw new Exception($"获取{gameObject.name}的ReferenceCollector key失败, key: {key}", e);
-			}
+			return UnityEngine.Object.Instantiate(prefab, parent, worldPositionStays);
 		}
 	}
 }
