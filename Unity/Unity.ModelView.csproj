@@ -66,6 +66,7 @@
     <Compile Include="Codes\ModelView\Demo\Unit\GameObjectComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUI.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\GObjectComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEvent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEventComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEntity.cs" />

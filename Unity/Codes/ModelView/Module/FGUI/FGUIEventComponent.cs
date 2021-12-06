@@ -9,7 +9,6 @@ namespace ET
 {
     public class FGUIEventComponent : Entity
 	{
-		public static FGUIEventComponent Instance;
-		public Dictionary<FGUIType, FGUIEvent> UIEvents = new Dictionary<FGUIType, FGUIEvent>();
+		public Dictionary<FGUIType, IFGUIEvent> UIEvents = new Dictionary<FGUIType, IFGUIEvent>();
 	}
 }

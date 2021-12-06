@@ -15,5 +15,8 @@ namespace ET
     public class FGUI : Entity
     {
         public static FGUI Instance;
+        public bool InitializedBasePackages = false;
+        public Dictionary<FGUIType, FGUIEntity> UIDict = new Dictionary<FGUIType, FGUIEntity>();
+        public FGUIEventComponent Event => GetComponent<FGUIEventComponent>();
     }
 }

@@ -9,42 +9,30 @@ using UnityEngine;
 
 namespace ET
 {
-    public class FGUIComponentDestroySystem : DestroySystem<FGUIComponent>
+    public static class FGUIHelper
     {
-        public override void Destroy(FGUIComponent self)
+        public static void BindRoot(Type type,object bindObj,GComponent gComponent)
         {
-            if(self.Root != null)
-            {
-                GRoot.inst.RemoveChild(self.Root);
-            }
-        }
-    }
-
-    public static class FGUIComponentSystem
-    {
-        public static void BindRoot<T>(this T self) where T : FGUIComponent
-        {
-            Type type = typeof(T);
             foreach (FieldInfo fieldInfo in type.GetFields())
             {
                 var attribute = fieldInfo.GetCustomAttributes(typeof(FGUIObjectAttribute), false).FirstOrDefault();
-                if(attribute == null)
+                if (attribute == null)
                 {
                     continue;
                 }
-                if(fieldInfo.FieldType == typeof(Controller))
+                if (fieldInfo.FieldType == typeof(Controller))
                 {
-                    Controller ctrl = self.Root.GetController(fieldInfo.Name);
-                    fieldInfo.SetValue(self, ctrl);
+                    Controller ctrl = gComponent.GetController(fieldInfo.Name);
+                    fieldInfo.SetValue(bindObj, ctrl);
                 }
-                else if(fieldInfo.FieldType == typeof(Transition))
+                else if (fieldInfo.FieldType == typeof(Transition))
                 {
-                    Transition tran = self.Root.GetTransition(fieldInfo.Name);
-                    fieldInfo.SetValue(self, tran);
+                    Transition tran = gComponent.GetTransition(fieldInfo.Name);
+                    fieldInfo.SetValue(bindObj, tran);
                 }
                 else
                 {
-                    GObject gObj = self.Root.GetChild(fieldInfo.Name);
+                    GObject gObj = gComponent.GetChild(fieldInfo.Name);
                     if (gObj != null)
                     {
                         if (gObj.GetType() != fieldInfo.FieldType)
@@ -53,13 +41,18 @@ namespace ET
                         }
                         else
                         {
-                            fieldInfo.SetValue(self, gObj);
+                            fieldInfo.SetValue(bindObj, gObj);
                         }
                     }
                 }
             }
         }
-        public static void AddButtonListener(this FGUIComponent self,GButton button,Action action)
+        public static void BindRoot<T>(T bindObj,GComponent gComponent)
+        {
+            Type type = typeof(T);
+            BindRoot(type, bindObj, gComponent);
+        }
+        public static void AddButtonListener(GButton button,Action action)
         {
             button.onClick.Add(()=>action?.Invoke());
         }

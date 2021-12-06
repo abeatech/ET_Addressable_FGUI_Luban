@@ -10,11 +10,6 @@ namespace ET
 	{
 		public override void Awake(FGUIEventComponent self)
 		{
-			if (FGUIEventComponent.Instance != null)
-			{
-				return;
-			}
-			FGUIEventComponent.Instance = self;
 			var uiEvents = Game.EventSystem.GetTypes(typeof(FGUIEventAttribute));
 			foreach (Type type in uiEvents)
 			{
@@ -25,7 +20,7 @@ namespace ET
 				}
 
 				FGUIEventAttribute uiEventAttribute = attrs[0] as FGUIEventAttribute;
-				FGUIEvent aUIEvent = Activator.CreateInstance(type) as FGUIEvent;
+				IFGUIEvent aUIEvent = Activator.CreateInstance(type) as IFGUIEvent;
 				self.UIEvents.Add(uiEventAttribute.UIType, aUIEvent);
 			}
 		}
@@ -33,45 +28,45 @@ namespace ET
 
 	public static class FGUIEventComponentSystem
 	{
-		public static void OnCreate(this FGUIEventComponent self, FGUIComponent component)
+		public static void OnCreate(this FGUIEventComponent self, FGUIEntity entity)
 		{
-			if (self.UIEvents.TryGetValue(component.uiType, out FGUIEvent e))
+			if (self.UIEvents.TryGetValue(entity.UIType, out IFGUIEvent e))
 			{
-				e?.OnCreate(component);
+				e?.InvokeOnCreate(entity.UIComponent);
 			}
 		}
-		public static void OnShow(this FGUIEventComponent self, FGUIComponent component)
+		public static void OnShow(this FGUIEventComponent self, FGUIEntity entity)
 		{
 
-			if (self.UIEvents.TryGetValue(component.uiType, out FGUIEvent e))
+			if (self.UIEvents.TryGetValue(entity.UIType, out IFGUIEvent e))
 			{
-				e?.OnShow(component);
-			}
-
-		}
-		public static void OnHide(this FGUIEventComponent self, FGUIComponent component)
-		{
-			if (self.UIEvents.TryGetValue(component.uiType, out FGUIEvent e))
-			{
-				e?.OnHide(component);
+				e?.InvokeOnShow(entity.UIComponent);
 			}
 
 		}
-		public static void OnDestroy(this FGUIEventComponent self, FGUIComponent component)
+		public static void OnHide(this FGUIEventComponent self, FGUIEntity entity)
 		{
-			if (self.UIEvents.TryGetValue(component.uiType, out FGUIEvent e))
+			if (self.UIEvents.TryGetValue(entity.UIType, out IFGUIEvent e))
 			{
-				e?.OnDestroy(component);
+				e?.InvokeOnHide(entity.UIComponent);
+			}
+
+		}
+		public static void OnDestroy(this FGUIEventComponent self, FGUIEntity entity)
+		{
+			if (self.UIEvents.TryGetValue(entity.UIType, out IFGUIEvent e))
+			{
+				e?.InvokeOnDestroy(entity.UIComponent);
 			}
 
 
 		}
-		public static void OnRefresh(this FGUIEventComponent self, FGUIComponent component)
+		public static void OnRefresh(this FGUIEventComponent self, FGUIEntity entity)
 		{
 
-			if (self.UIEvents.TryGetValue(component.uiType, out FGUIEvent e))
+			if (self.UIEvents.TryGetValue(entity.UIType, out IFGUIEvent e))
 			{
-				e?.OnRefresh(component);
+				e?.InvokeOnRefresh(entity.UIComponent);
 			}
 
 		}

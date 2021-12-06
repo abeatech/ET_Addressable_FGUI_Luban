@@ -32,9 +32,6 @@ namespace ET
     }
     public static class FGUISystem
     {
-        private static bool _initedBasePackages = false;
-        private static object _lock = new object();
-        private static Dictionary<FGUIType, FGUIEntity> _uiDict = new Dictionary<FGUIType, FGUIEntity>();
         public static async void OnLoadResourceFinished(string name, string extension, System.Type type, PackageItem item)
         {
             Debug.Log($"{name}, {extension}, {type.ToString()}, {item.ToString()}");
@@ -47,28 +44,30 @@ namespace ET
             }
         }
 
-        private static async ETTask InitBasePackage()
+        private static async ETTask InitBasePackage(this FGUI self)
         {
+            if (self.InitializedBasePackages)
+            {
+                return;
+            }
             TextAsset desc = await AddressableComponent.Instance.LoadAssetByPathAsync<TextAsset>("ABaseComponents_fui");
             UIPackage.AddPackage(desc.bytes, "ABaseComponents", OnLoadResourceFinished);
-            _initedBasePackages = true;
+            self.InitializedBasePackages = true;
             await Task.CompletedTask;
         }
         public static async ETTask OpenAysnc(this FGUI self,FGUIType uiType)
         {
             try
             {
-                if (_uiDict.ContainsKey(uiType))
+                if (self.UIDict.ContainsKey(uiType))
                 {
-                    FGUIEntity ui = _uiDict[uiType];
-                    GRoot.inst.AddChild(ui.FGUI.Root);//显示到最上层
-                    FGUIEventComponent.Instance.OnRefresh(ui.FGUI);
+                    FGUIEntity entity = self.UIDict[uiType];
+                    GRoot.inst.AddChild(entity.GObject);//显示到最上层
+                    self.Event.OnRefresh(entity);
                     return;
                 }
-                if (!_initedBasePackages)
-                {
-                    await InitBasePackage();
-                }
+                await self.InitBasePackage();
+                
                 FguiConfig config = ConfigUtil.Tables.TbFguiConfig.Get((int)uiType);
                 await AddressableComponent.Instance.AddFGUIPackageAsync(config.Path);
                 GComponent gCom = null;
@@ -84,17 +83,17 @@ namespace ET
                         //如果没指定的类就默认用FGUIComponent
                         type = typeof(FGUIComponent);
                     }
-                    FGUIEntity view = self.AddChild<FGUIEntity,Type>(type);
-                    FGUIComponent component = view.AddComponent(type) as FGUIComponent;
+                    FGUIEntity entity = self.AddChild<FGUIEntity, Type, FGUIType>(type, uiType);
+                    Entity component = entity.AddComponent(type);
                     if(component == null)
                     {
                         Log.Error($"打开UI错误，类型为空: {type.Name}");
                     }
-                    component.Root = gCom;
-                    component.uiType = uiType;
-                    FGUIEventComponent.Instance.OnCreate(component);
-                    FGUIEventComponent.Instance.OnShow(component);
-                    _uiDict.Add(uiType, view);
+                    entity.AddComponent<GObjectComponent, GObject>(gCom);
+                    FGUIHelper.BindRoot(type, component, gCom);
+                    self.Event.OnCreate(entity);
+                    self.Event.OnShow(entity);
+                    self.UIDict.Add(uiType, entity);
                 });
             }
             catch (Exception e)
@@ -107,19 +106,17 @@ namespace ET
         {
             try
             {
-                if (!_uiDict.ContainsKey(uiType))
+                if (!self.UIDict.ContainsKey(uiType))
                 {
                     return;
                 }
 
-                FGUIEntity ui = _uiDict[uiType];
-                UnityEngine.Debug.Log($"=================NULL?{ui == null}");
-                UnityEngine.Debug.Log($"================22=NULL?{ui.FGUI == null}");
-                FGUIEventComponent.Instance.OnHide(ui.FGUI);
-                FGUIEventComponent.Instance.OnDestroy(ui.FGUI);
-                GRoot.inst.RemoveChild(ui.FGUI.Root, true);
-                ui.Dispose();
-                _uiDict.Remove(uiType);
+                FGUIEntity entity = self.UIDict[uiType];
+                self.Event.OnHide(entity);
+                self.Event.OnDestroy(entity);
+                GRoot.inst.RemoveChild(entity.GObject, true);
+                entity.Dispose();
+                self.UIDict.Remove(uiType);
             }
             catch (Exception e)
             {
@@ -129,16 +126,9 @@ namespace ET
 
         public static void RefreshAll(this FGUI self)
         {
-            foreach (FGUIEntity ui in _uiDict.Values)
+            foreach (FGUIEntity entity in self.UIDict.Values)
             {
-                FGUIEventComponent.Instance.OnRefresh(ui.FGUI);
-            }
-        }
-        public static void CloseAll(this FGUI self)
-        {
-            foreach (FGUIEntity ui in _uiDict.Values)
-            {
-                self.Close(ui.FGUI.uiType);
+                self.Event.OnRefresh(entity);
             }
         }
     }

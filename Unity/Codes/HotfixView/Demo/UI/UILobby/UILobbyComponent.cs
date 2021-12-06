@@ -14,17 +14,15 @@ namespace ET
 	}
 
 	[FGUIEvent(FGUIType.Lobby)]
-	public class UILobbyEvent : FGUIEvent
+	public class UILobbyEvent : FGUIEvent<UILobbyComponent>
     {
-		public override void OnCreate(FGUIComponent self)
+		public override void OnCreate(UILobbyComponent component)
 		{
-			UILobbyComponent component = self as UILobbyComponent;
-			component.BindRoot();
-			component.AddButtonListener(component.Btn_EnterMap, () => component.OnEnterMap());
+			FGUIHelper.AddButtonListener(component.Btn_EnterMap, () => component.OnEnterMap());
 		}
-		public override void OnShow(FGUIComponent self)
+		public override void OnShow(UILobbyComponent self)
 		{
-			UILobbyComponent component = self as UILobbyComponent;
+			//TODO
 		}
 	}
 

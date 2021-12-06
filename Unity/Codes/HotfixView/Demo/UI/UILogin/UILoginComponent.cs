@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace ET
 {
-    public class UILoginComponent : FGUIComponent
+    public class UILoginComponent : Entity
     {
         [FGUIObject]
         public GButton Btn_Login;
@@ -39,16 +39,14 @@ namespace ET
         public Dictionary<GTextInput, GTextInput> inputTabSkipDict;
     }
     [FGUIEvent(FGUIType.Login)]
-    public class UILoginEvent : FGUIEvent
+    public class UILoginEvent : FGUIEvent<UILoginComponent>
     {
-        public override void OnCreate(FGUIComponent self)
+        public override void OnCreate(UILoginComponent component)
         {
-            UILoginComponent component = self as UILoginComponent;
-            component.BindRoot();
-            component.AddButtonListener(component.Btn_Login, () => component.BtnLoginOnClick());
-            component.AddButtonListener(component.Btn_ToRegister, () => { component.Ctrl_Page.selectedPage = "Register"; });
-            component.AddButtonListener(component.Btn_Register, () => component.BtnRegisterOnClick());
-            component.AddButtonListener(component.Btn_ToLogin, () => { component.Ctrl_Page.selectedPage = "Login"; });
+            FGUIHelper.AddButtonListener(component.Btn_Login, () => component.BtnLoginOnClick());
+            FGUIHelper.AddButtonListener(component.Btn_ToRegister, () => { component.Ctrl_Page.selectedPage = "Register"; });
+            FGUIHelper.AddButtonListener(component.Btn_Register, () => component.BtnRegisterOnClick());
+            FGUIHelper.AddButtonListener(component.Btn_ToLogin, () => { component.Ctrl_Page.selectedPage = "Login"; });
 
             component.inputTabSkipDict = new Dictionary<GTextInput, GTextInput>();
             component.inputTabSkipDict.Add(component.Input_Account, component.Input_Password);
@@ -62,10 +60,8 @@ namespace ET
             component.Input_RegPassword.onChanged.Add((on) => component.InputPasswordOnChange(on));
             component.Input_RegPassword2.onChanged.Add((on) => component.InputPasswordOnChange(on));
         }
-        public override void OnShow(FGUIComponent self)
+        public override void OnShow(UILoginComponent component)
         {
-            UILoginComponent component = self as UILoginComponent;
-
             component.Txt_Tips.text = "鹅鹅鹅鹅鹅鹅饿";
         }
     }
