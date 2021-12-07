@@ -46,32 +46,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Codes\HotfixView\AppStart_Init.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Global\GlobalComponentSystem.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Opera\OperaComponentSystem.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Scene\AfterCreateZoneScene_AddComponent.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Scene\SceneChangeComponentSystem.cs" />
-    <Compile Include="Codes\HotfixView\Demo\UI\UILobby\UILobbyComponentSystem.cs" />
-    <Compile Include="Codes\HotfixView\Demo\UI\UILogin\UILoginComponentSystem.cs" />
-    <Compile Include="Codes\HotfixView\Module\FGUI\FGUIHelper.cs" />
-    <Compile Include="Codes\HotfixView\Module\FGUI\FGUIEventComponentSystem.cs" />
-    <Compile Include="Codes\HotfixView\Module\FGUI\FGUIComponentSystem.cs" />
-    <Compile Include="Codes\HotfixView\Demo\UI\UILobby\EnterMapFinish_RemoveLobbyUI.cs" />
-    <Compile Include="Codes\HotfixView\Demo\UI\UILobby\LoginFinish_CreateLobbyUI.cs" />
-    <Compile Include="Codes\HotfixView\Demo\UI\UILogin\EventAppStartInitFinish_OpenLogin.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Unit\AfterUnitCreate_CreateUnitView.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Unit\AnimatorComponentSystem.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Unit\ChangePosition_SyncGameObjectPos.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Unit\ChangeRotation_SyncGameObjectRotation.cs" />
-    <Compile Include="Codes\HotfixView\Module\Resource\GameObjectHelper.cs" />
-    <Reference Include="Unity.Addressables, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
-    </Reference>
+    <Compile Include="Codes\HotfixView\**\*.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
     </Reference>
@@ -627,9 +602,6 @@
       <Project>{5910fa29-5797-199c-985b-fc9fc473328e}</Project>
       <Name>Unity.Mono</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Codes\HotfixView\Demo\Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
