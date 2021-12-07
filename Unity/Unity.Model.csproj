@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>7.3</LangVersion>
-    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
-    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
-    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,12 +26,8 @@
     <DefineConstants>DEBUG;TRACE;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>
-    </NoWarn>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,12 +35,8 @@
     <OutputPath>Temp\Bin\Release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>
-    </NoWarn>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -57,120 +46,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Codes\Model\Core\BeanBase.cs" />
-    <Compile Include="Codes\Model\Core\ByteBufExtensions.cs" />
-    <Compile Include="Codes\Model\Core\Entity\EntitySceneFactory.cs" />
-    <Compile Include="Codes\Model\Core\Entity\Game.cs" />
-    <Compile Include="Codes\Model\Core\Entity\Scene.cs" />
-    <Compile Include="Codes\Model\Core\Entity\SceneType.cs" />
-    <Compile Include="Codes\Model\Core\ETCancelationTokenHelper.cs" />
-    <Compile Include="Codes\Model\Core\Event\EventAttribute.cs" />
-    <Compile Include="Codes\Model\Core\Event\IEvent.cs" />
-    <Compile Include="Codes\Model\Core\ITypeId.cs" />
-    <Compile Include="Codes\Model\Core\ObjectWait.cs" />
-    <Compile Include="Codes\Model\Core\Object\BaseAttribute.cs" />
-    <Compile Include="Codes\Model\Core\Object\Entity.cs" />
-    <Compile Include="Codes\Model\Core\Object\EventSystem.cs" />
-    <Compile Include="Codes\Model\Core\Object\IAwakeSystem.cs" />
-    <Compile Include="Codes\Model\Core\Object\IDeserializeSystem.cs" />
-    <Compile Include="Codes\Model\Core\Object\IDestroySystem.cs" />
-    <Compile Include="Codes\Model\Core\Object\IdGenerater.cs" />
-    <Compile Include="Codes\Model\Core\Object\ILateUpdateSystem.cs" />
-    <Compile Include="Codes\Model\Core\Object\ILoadSystem.cs" />
-    <Compile Include="Codes\Model\Core\Object\ISerializeToEntity.cs" />
-    <Compile Include="Codes\Model\Core\Object\ISystemType.cs" />
-    <Compile Include="Codes\Model\Core\Object\IUpdateSystem.cs" />
-    <Compile Include="Codes\Model\Core\Object\NoMemoryCheck.cs" />
-    <Compile Include="Codes\Model\Core\Object\Object.cs" />
-    <Compile Include="Codes\Model\Core\Object\ObjectPool.cs" />
-    <Compile Include="Codes\Model\Core\Object\ObjectSystemAttribute.cs" />
-    <Compile Include="Codes\Model\Core\Object\ProtoObject.cs" />
-    <Compile Include="Codes\Model\Core\PoolHelper.cs" />
-    <Compile Include="Codes\Model\Core\ProtobufHelper.cs" />
-    <Compile Include="Codes\Model\Core\QueueDictionary.cs" />
-    <Compile Include="Codes\Model\Core\Scene\SceneHelper.cs" />
-    <Compile Include="Codes\Model\Core\Scene\ZoneSceneFlagComponent.cs" />
-    <Compile Include="Codes\Model\Core\Scene\ZoneSceneManagerComponent.cs" />
-    <Compile Include="Codes\Model\Core\StringUtil.cs" />
-    <Compile Include="Codes\Model\Core\Timer\ITimer.cs" />
-    <Compile Include="Codes\Model\Core\Timer\TimerAttribute.cs" />
-    <Compile Include="Codes\Model\Core\Timer\TimerComponent.cs" />
-    <Compile Include="Codes\Model\Core\Timer\TimerType.cs" />
-    <Compile Include="Codes\Model\Demo\AI\XunLuoPathComponent.cs" />
-    <Compile Include="Codes\Model\Demo\EventType.cs" />
-    <Compile Include="Codes\Model\Demo\Helper\PositionHelper.cs" />
-    <Compile Include="Codes\Model\Demo\Move\MoveComponent.cs" />
-    <Compile Include="Codes\Model\Demo\SessionStreamDispatcherType.cs" />
-    <Compile Include="Codes\Model\Demo\Session\SessionComponent.cs" />
-    <Compile Include="Codes\Model\Demo\TimerType.cs" />
-    <Compile Include="Codes\Model\Demo\Unit\Unit.cs" />
-    <Compile Include="Codes\Model\Demo\Unit\UnitComponent.cs" />
-    <Compile Include="Codes\Model\Demo\WaitType.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Demo\AIMeta.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Demo\AIMetas.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Demo\TbAIMetas.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Demo\TbUnitMeta.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Demo\UnitMeta.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Enums\FGUILayer.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Enums\SceneType.cs" />
-    <Compile Include="Codes\Model\Generate\Config\FGUIType.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Fgui\FguiConfig.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Fgui\TbFguiConfig.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Global\GlobalConfig.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Global\TbGlobal.cs" />
-    <Compile Include="Codes\Model\Generate\Config\Tables.cs" />
-    <Compile Include="Codes\Model\Generate\Message\OuterMessage.cs" />
-    <Compile Include="Codes\Model\Generate\Message\OuterOpcode.cs" />
-    <Compile Include="Codes\Model\Module\ActorLocation\ActorResponse.cs" />
-    <Compile Include="Codes\Model\Module\ActorLocation\IActorLocationMessage.cs" />
-    <Compile Include="Codes\Model\Module\Actor\IActorMessage.cs" />
-    <Compile Include="Codes\Model\Module\Addressable\AddressableComponent.cs" />
-    <Compile Include="Codes\Model\Module\AI\AAIHandler.cs" />
-    <Compile Include="Codes\Model\Module\AI\AIComponent.cs" />
-    <Compile Include="Codes\Model\Module\AI\AIDispatcherComponent.cs" />
-    <Compile Include="Codes\Model\Module\Config\ConfigComponent.cs" />
-    <Compile Include="Codes\Model\Module\Config\ConfigUtil.cs" />
-    <Compile Include="Codes\Model\Module\CoroutineLock\CoroutineLock.cs" />
-    <Compile Include="Codes\Model\Module\CoroutineLock\CoroutineLockComponent.cs" />
-    <Compile Include="Codes\Model\Module\CoroutineLock\CoroutineLockQueue.cs" />
-    <Compile Include="Codes\Model\Module\CoroutineLock\CoroutineLockQueueType.cs" />
-    <Compile Include="Codes\Model\Module\CoroutineLock\CoroutineLockTimer.cs" />
-    <Compile Include="Codes\Model\Module\CoroutineLock\CoroutineLockType.cs" />
-    <Compile Include="Codes\Model\Module\Message\AMHandler.cs" />
-    <Compile Include="Codes\Model\Module\Message\ErrorCode.cs" />
-    <Compile Include="Codes\Model\Module\Message\IMessage.cs" />
-    <Compile Include="Codes\Model\Module\Message\IMHandler.cs" />
-    <Compile Include="Codes\Model\Module\Message\ISessionStreamDispatcher.cs" />
-    <Compile Include="Codes\Model\Module\Message\MessageAttribute.cs" />
-    <Compile Include="Codes\Model\Module\Message\MessageDispatcherComponent.cs" />
-    <Compile Include="Codes\Model\Module\Message\MessageHandlerAttribute.cs" />
-    <Compile Include="Codes\Model\Module\Message\MessagePackHelper.cs" />
-    <Compile Include="Codes\Model\Module\Message\MessageSerializeHelper.cs" />
-    <Compile Include="Codes\Model\Module\Message\NetKcpComponent.cs" />
-    <Compile Include="Codes\Model\Module\Message\NetThreadComponent.cs" />
-    <Compile Include="Codes\Model\Module\Message\OpcodeHelper.cs" />
-    <Compile Include="Codes\Model\Module\Message\OpcodeTypeComponent.cs" />
-    <Compile Include="Codes\Model\Module\Message\ResponseTypeAttribute.cs" />
-    <Compile Include="Codes\Model\Module\Message\Session.cs" />
-    <Compile Include="Codes\Model\Module\Message\SessionAcceptTimeoutComponent.cs" />
-    <Compile Include="Codes\Model\Module\Message\SessionCallbackComponent.cs" />
-    <Compile Include="Codes\Model\Module\Message\SessionIdleCheckerComponent.cs" />
-    <Compile Include="Codes\Model\Module\Message\SessionStreamDispatcher.cs" />
-    <Compile Include="Codes\Model\Module\Message\SessionStreamDispatcherAttribute.cs" />
-    <Compile Include="Codes\Model\Module\Numeric\INumericWatcher.cs" />
-    <Compile Include="Codes\Model\Module\Numeric\NumericComponent.cs" />
-    <Compile Include="Codes\Model\Module\Numeric\NumericType.cs" />
-    <Compile Include="Codes\Model\Module\Numeric\NumericWatcherAttribute.cs" />
-    <Compile Include="Codes\Model\Module\Numeric\NumericWatcherComponent.cs" />
-    <Compile Include="Codes\Model\Module\Ping\PingComponent.cs" />
-    <Compile Include="Codes\Model\Module\UnityWebRequest\UnityWebRequestAsync.cs" />
-    <Compile Include="Codes\Model\Module\UnityWebRequest\UnityWebRequestRenewalAsync.cs" />
-    <Reference Include="Unity.Addressables">
-      <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ResourceManager">
-      <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
-    </Reference>
+    <Compile Include="Codes\Model\**\*.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
     </Reference>
@@ -715,9 +591,6 @@
       <Project>{d2ad5be1-263a-9a30-ab0f-dc5b08044350}</Project>
       <Name>Unity.ThirdParty</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Codes\Model\Generate\Config\StartServer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
