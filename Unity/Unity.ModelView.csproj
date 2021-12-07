@@ -62,9 +62,12 @@
     <Compile Include="Codes\ModelView\Demo\Global\GlobalComponent.cs" />
     <Compile Include="Codes\ModelView\Demo\Opera\OperaComponent.cs" />
     <Compile Include="Codes\ModelView\Demo\Scene\SceneChangeComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\UI\UILobby\UILobbyComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\UI\UILogin\UILoginComponent.cs" />
     <Compile Include="Codes\ModelView\Demo\Unit\AnimatorComponent.cs" />
     <Compile Include="Codes\ModelView\Demo\Unit\GameObjectComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\FGUI\FGUIEventAttribute.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\UIDefaultComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\GObjectComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEvent.cs" />
@@ -616,6 +619,7 @@
       <Name>Unity.Mono</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -62,15 +62,14 @@
     <Compile Include="Codes\HotfixView\Demo\Opera\OperaComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Demo\Scene\AfterCreateZoneScene_AddComponent.cs" />
     <Compile Include="Codes\HotfixView\Demo\Scene\SceneChangeComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\UILobby\UILobbyComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Demo\UI\UILogin\UILoginComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\FGUI\FGUIHelper.cs" />
-    <Compile Include="Codes\HotfixView\Module\FGUI\FGUIEventAttribute.cs" />
     <Compile Include="Codes\HotfixView\Module\FGUI\FGUIEventComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\FGUI\FGUIComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Demo\UI\UILobby\EnterMapFinish_RemoveLobbyUI.cs" />
     <Compile Include="Codes\HotfixView\Demo\UI\UILobby\LoginFinish_CreateLobbyUI.cs" />
-    <Compile Include="Codes\HotfixView\Demo\UI\UILobby\UILobbyComponent.cs" />
     <Compile Include="Codes\HotfixView\Demo\UI\UILogin\EventAppStartInitFinish_OpenLogin.cs" />
-    <Compile Include="Codes\HotfixView\Demo\UI\UILogin\UILoginComponent.cs" />
     <Compile Include="Codes\HotfixView\Demo\Unit\AfterUnitCreate_CreateUnitView.cs" />
     <Compile Include="Codes\HotfixView\Demo\Unit\AnimatorComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Demo\Unit\ChangePosition_SyncGameObjectPos.cs" />
