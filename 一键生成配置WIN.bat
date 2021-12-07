@@ -22,7 +22,6 @@ set CONF_ROOT=%WORKSPACE%\Config
  --output_code_dir %WORKSPACE%\Unity\Codes\Model\Generate\Config ^
  --output_data_dir %WORKSPACE%\Unity\Assets\Bundles\ConfigBin ^
  --gen_types code_cs_bin,data_bin ^
- --data_file_extension bytes ^ ^
  --external:selectors dotnet_cs,unity_cs ^
  -s client
 

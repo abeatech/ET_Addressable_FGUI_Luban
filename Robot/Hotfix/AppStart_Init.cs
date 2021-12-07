@@ -14,7 +14,7 @@ namespace ET
             Game.Scene.AddComponent<ConfigComponent>();
             await ConfigComponent.Instance.LoadAsync((file) =>
             {
-                return new ByteBuf(File.ReadAllBytes($"../Server/ConfigBin/{file}.bin"));
+                return new ByteBuf(File.ReadAllBytes($"../Server/ConfigBin/{file}.bytes"));
             });
             
             Game.Scene.AddComponent<OpcodeTypeComponent>();
