@@ -9,6 +9,6 @@ namespace ET
 {
     public class FGUIEventComponent : Entity
 	{
-		public Dictionary<FGUIType, IFGUIEvent> UIEvents = new Dictionary<FGUIType, IFGUIEvent>();
+		public Dictionary<Cfg.FGUIType, IFGUIEvent> UIEvents = new Dictionary<Cfg.FGUIType, IFGUIEvent>();
 	}
 }

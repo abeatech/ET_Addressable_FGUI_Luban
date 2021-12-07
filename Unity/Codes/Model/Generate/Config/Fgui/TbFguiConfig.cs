@@ -14,12 +14,12 @@ namespace Cfg.Fgui
    
 public sealed class TbFguiConfig
 {
-    private readonly Dictionary<int, Fgui.FguiConfig> _dataMap;
+    private readonly Dictionary<FGUIType, Fgui.FguiConfig> _dataMap;
     private readonly List<Fgui.FguiConfig> _dataList;
     
     public TbFguiConfig(ByteBuf _buf)
     {
-        _dataMap = new Dictionary<int, Fgui.FguiConfig>();
+        _dataMap = new Dictionary<FGUIType, Fgui.FguiConfig>();
         _dataList = new List<Fgui.FguiConfig>();
         
         for(int n = _buf.ReadSize() ; n > 0 ; --n)
@@ -31,12 +31,12 @@ public sealed class TbFguiConfig
         }
     }
 
-    public Dictionary<int, Fgui.FguiConfig> DataMap => _dataMap;
+    public Dictionary<FGUIType, Fgui.FguiConfig> DataMap => _dataMap;
     public List<Fgui.FguiConfig> DataList => _dataList;
 
-    public Fgui.FguiConfig GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public Fgui.FguiConfig Get(int key) => _dataMap[key];
-    public Fgui.FguiConfig this[int key] => _dataMap[key];
+    public Fgui.FguiConfig GetOrDefault(FGUIType key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public Fgui.FguiConfig Get(FGUIType key) => _dataMap[key];
+    public Fgui.FguiConfig this[FGUIType key] => _dataMap[key];
 
     public void Resolve(Dictionary<string, object> _tables)
     {

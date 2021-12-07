@@ -1,4 +1,5 @@
-﻿using FairyGUI;
+﻿using Cfg;
+using FairyGUI;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;

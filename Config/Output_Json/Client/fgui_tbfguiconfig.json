@@ -1,6 +1,6 @@
 [
   {
-    "Id": 1,
+    "Id": 0,
     "Name": "加载中",
     "Path": "UILoading_fui",
     "PackageName": "UILoading",
@@ -9,7 +9,7 @@
     "Layer": 4
   },
   {
-    "Id": 2,
+    "Id": 1,
     "Name": "登陆",
     "Path": "UILogin_fui",
     "PackageName": "UILogin",
@@ -18,7 +18,7 @@
     "Layer": 2
   },
   {
-    "Id": 3,
+    "Id": 2,
     "Name": "背景",
     "Path": "ABaseComponents_fui",
     "PackageName": "ABaseComponents",
@@ -27,7 +27,7 @@
     "Layer": 0
   },
   {
-    "Id": 4,
+    "Id": 3,
     "Name": "大厅",
     "Path": "UILobby_fui",
     "PackageName": "UILobby",

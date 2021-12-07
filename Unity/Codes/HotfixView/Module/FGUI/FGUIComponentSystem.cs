@@ -1,4 +1,5 @@
-﻿using Cfg.Fgui;
+﻿using Cfg;
+using Cfg.Fgui;
 using FairyGUI;
 using System;
 using System.Collections.Generic;
@@ -68,7 +69,7 @@ namespace ET
                 }
                 await self.InitBasePackage();
                 
-                FguiConfig config = ConfigUtil.Tables.TbFguiConfig.Get((int)uiType);
+                FguiConfig config = ConfigUtil.Tables.TbFguiConfig.Get(uiType);
                 await AddressableComponent.Instance.AddFGUIPackageAsync(config.Path);
                 GComponent gCom = null;
                 UIPackage.CreateObjectAsync(config.PackageName, config.ComponentName, (go) =>

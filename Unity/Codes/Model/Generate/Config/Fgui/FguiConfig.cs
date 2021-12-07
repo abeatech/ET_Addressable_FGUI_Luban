@@ -18,7 +18,7 @@ public sealed class FguiConfig :  Bright.Config.BeanBase
 {
     public FguiConfig(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        Id = (FGUIType)_buf.ReadInt();
         Name = _buf.ReadString();
         Path = _buf.ReadString();
         PackageName = _buf.ReadString();
@@ -33,9 +33,9 @@ public sealed class FguiConfig :  Bright.Config.BeanBase
     }
 
     /// <summary>
-    /// Id
+    /// Id,它和FGUIType的ID直接相关，记得加上对应枚举
     /// </summary>
-    public int Id { get; private set; }
+    public FGUIType Id { get; private set; }
     /// <summary>
     /// 名字
     /// </summary>

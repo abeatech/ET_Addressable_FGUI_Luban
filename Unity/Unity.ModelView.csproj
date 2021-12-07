@@ -73,7 +73,6 @@
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEvent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEventComponent.cs" />
     <Compile Include="Codes\ModelView\Module\FGUI\FGUIEntity.cs" />
-    <Compile Include="Codes\ModelView\Module\FGUI\FGUIType.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
     </Reference>

@@ -1,5 +1,7 @@
 ﻿
 
+using Cfg;
+
 namespace ET
 {
 	public class LoginFinish_CreateLobbyUI: AEvent<EventType.LoginFinish>

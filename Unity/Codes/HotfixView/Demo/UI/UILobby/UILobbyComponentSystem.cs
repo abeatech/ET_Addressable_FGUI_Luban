@@ -1,4 +1,6 @@
-﻿namespace ET
+﻿using Cfg;
+
+namespace ET
 {
     public static class UILobbyComponentSystem
 	{

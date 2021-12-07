@@ -112,6 +112,7 @@
     <Compile Include="Codes\Model\Generate\Config\Demo\TbUnitMeta.cs" />
     <Compile Include="Codes\Model\Generate\Config\Demo\UnitMeta.cs" />
     <Compile Include="Codes\Model\Generate\Config\Enums\SceneType.cs" />
+    <Compile Include="Codes\Model\Generate\Config\FGUIType.cs" />
     <Compile Include="Codes\Model\Generate\Config\Fgui\FguiConfig.cs" />
     <Compile Include="Codes\Model\Generate\Config\Fgui\TbFguiConfig.cs" />
     <Compile Include="Codes\Model\Generate\Config\Global\GlobalConfig.cs" />

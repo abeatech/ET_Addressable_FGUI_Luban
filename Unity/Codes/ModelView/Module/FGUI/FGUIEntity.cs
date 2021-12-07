@@ -1,4 +1,5 @@
-﻿using FairyGUI;
+﻿using Cfg;
+using FairyGUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;

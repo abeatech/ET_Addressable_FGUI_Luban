@@ -1,4 +1,6 @@
-﻿namespace ET
+﻿using Cfg;
+
+namespace ET
 {
 	public class EnterMapFinish_RemoveLobbyUI: AEvent<EventType.EnterMapFinish>
 	{
@@ -17,7 +19,7 @@
 			}
             args.ZoneScene.AddComponent<OperaComponent>();
 			FGUIComponent.Instance.Close(FGUIType.Lobby);
-			FGUIComponent.Instance.Close(FGUIType.Backgound);
+			FGUIComponent.Instance.Close(FGUIType.Background);
 		}
 	}
 }
