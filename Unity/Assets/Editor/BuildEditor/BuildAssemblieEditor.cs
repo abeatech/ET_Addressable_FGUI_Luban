@@ -7,6 +7,8 @@ using ILRuntime.Mono.Cecil;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.Compilation;
+using UnityEditor.AddressableAssets;
+using UnityEditor.AddressableAssets.Settings;
 
 namespace ET
 {
@@ -162,7 +164,7 @@ namespace ET
                 Thread.Sleep(1000);
                 Debug.Log("Compiling wait2");
             }
-            
+
             Debug.Log("Compiling finish");
 
             Directory.CreateDirectory(CodeDir);
@@ -170,15 +172,32 @@ namespace ET
             File.Copy(Path.Combine(Define.BuildOutputDir, "Code.pdb"), Path.Combine(CodeDir, "Code.pdb.bytes"), true);
             AssetDatabase.Refresh();
             Debug.Log("copy Code.dll to Bundles/Code success!");
-            
-            // 设置ab包
-            AssetImporter assetImporter1 = AssetImporter.GetAtPath("Assets/Bundles/Code/Code.dll.bytes");
-            assetImporter1.assetBundleName = "Code.unity3d";
-            AssetImporter assetImporter2 = AssetImporter.GetAtPath("Assets/Bundles/Code/Code.pdb.bytes");
-            assetImporter2.assetBundleName = "Code.unity3d";
+
+            // 设置adressable包
+            var settings = AddressableAssetSettingsDefaultObject.Settings;
+            var group = settings.FindGroup("ILRuntime");
+            if (group == null)
+            {
+                group = settings.CreateGroup("ILRuntime", false, false, false, null);
+            }
+            string dllGUID = AssetDatabase.AssetPathToGUID("Assets/Bundles/Code/Code.dll.bytes");
+            string pdbGUID = AssetDatabase.AssetPathToGUID("Assets/Bundles/Code/Code.pdb.bytes");
+            AddressableAssetEntry entry = group.entries.FirstOrDefault(e => e.guid == dllGUID);
+            if (entry == null)
+            {
+                entry = settings.CreateOrMoveEntry(dllGUID, group, false, false);
+            }
+            entry.address = "Code.dll";
+            entry = group.entries.FirstOrDefault(e => e.guid == pdbGUID);
+            if (entry == null)
+            {
+                entry = settings.CreateOrMoveEntry(pdbGUID, group, false, false);
+            }
+            entry.address = "Code.pdb";
+            entry.SetLabel(group.Name, true, false, false);
             AssetDatabase.Refresh();
             Debug.Log("set assetbundle success!");
-            
+
             Debug.Log("build success!");
         }
     }

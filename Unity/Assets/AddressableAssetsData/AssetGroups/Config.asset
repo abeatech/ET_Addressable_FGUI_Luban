@@ -37,26 +37,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Config
-  - m_GUID: 115b3b2401831b547a7e66fd71224f8a
-    m_Address: startserver_tbstartmachine
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Config
-  - m_GUID: 56bfa4e9a42f4504399ac824840ee11a
-    m_Address: startserver_tbstartprocess
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Config
-  - m_GUID: fe032e12e92157549af8f8d5d33d0d45
-    m_Address: startserver_tbstartscene
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Config
-  - m_GUID: 748619e8020d9434e925fb2fd8828d38
-    m_Address: startserver_tbstartzone
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Config
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a89af19382b7a7c419e37936dfa2edeb, type: 2}
   m_SchemaSet:
