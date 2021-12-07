@@ -24,7 +24,7 @@ public sealed class FguiConfig :  Bright.Config.BeanBase
         PackageName = _buf.ReadString();
         ComponentName = _buf.ReadString();
         ClassName = _buf.ReadString();
-        Layer = _buf.ReadInt();
+        Layer = (Enums.FGUILayer)_buf.ReadInt();
     }
 
     public static FguiConfig DeserializeFguiConfig(ByteBuf _buf)
@@ -57,9 +57,9 @@ public sealed class FguiConfig :  Bright.Config.BeanBase
     /// </summary>
     public string ClassName { get; private set; }
     /// <summary>
-    /// 层级
+    /// 层级，这个枚举在Defines\enums_define.xml中
     /// </summary>
-    public int Layer { get; private set; }
+    public Enums.FGUILayer Layer { get; private set; }
 
     public const int __ID__ = 1974202160;
     public override int GetTypeId() => __ID__;

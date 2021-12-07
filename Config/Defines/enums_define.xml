@@ -17,5 +17,13 @@
 			<typename>ET.SceneType</typename>
 		</mapper>
 	</externaltype>
+	
+	<enum name="FGUILayer">
+		<var name="Background" alias="背景" value="0"/>
+		<var name="Fixed" alias="固定" value="1"/>
+		<var name="Window" alias="窗口" value="2"/>
+		<var name="Pop" alias="弹窗" value="3"/>
+		<var name="Tutorial" alias="引导" value="4"/>
+		<var name="Loading" alias="加载" value="5"/>
+	</enum>
 </module>
-

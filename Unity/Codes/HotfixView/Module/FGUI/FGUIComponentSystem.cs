@@ -75,7 +75,7 @@ namespace ET
                 UIPackage.CreateObjectAsync(config.PackageName, config.ComponentName, (go) =>
                 {
                     gCom = go as GComponent;
-                    gCom.sortingOrder = config.Layer * 100;
+                    gCom.sortingOrder = (int)config.Layer * 100;
                     gCom.displayObject.name = config.ComponentName;
                     GRoot.inst.AddChild(gCom);
                     Type type = Type.GetType(config.ClassName);

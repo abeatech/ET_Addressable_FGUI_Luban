@@ -5,14 +5,6 @@ using UnityEngine;
 
 namespace ET
 {
-    public enum FGUILayer
-    {
-        Background,
-        Fixed,
-        Window,
-        Tips,
-        Loading,
-    }
     public class FGUIComponent : Entity
     {
         public static FGUIComponent Instance;
