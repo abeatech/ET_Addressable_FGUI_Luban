@@ -17,28 +17,28 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f7ea34f9aede78340aebb6b6150f22e8
   m_SerializeEntries:
-  - m_GUID: 985bb3ce80409cb4f82cf962390812b7
-    m_Address: ABaseComponents_atlas0
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 5e0b793e94066b54ea51f3c742a94965
-    m_Address: ABaseComponents_fui
+  - m_GUID: 5e9e7d7cfa816604093baed37c2158db
+    m_Address: UILobby_fui
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 115e25ba431740e4dbfe51eeee1ad035
     m_Address: ACommonResources_fui
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 5e9e7d7cfa816604093baed37c2158db
-    m_Address: UILobby_fui
+  - m_GUID: 5e0b793e94066b54ea51f3c742a94965
+    m_Address: ABaseComponents_fui
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 644ebe33288c8254ea0399142ccc6f07
-    m_Address: UILogin_atlas0
+  - m_GUID: 985bb3ce80409cb4f82cf962390812b7
+    m_Address: ABaseComponents_atlas0
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: d28d924f11e081c42813e121bb6b8eaf
     m_Address: UILogin_fui
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 644ebe33288c8254ea0399142ccc6f07
+    m_Address: UILogin_atlas0
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

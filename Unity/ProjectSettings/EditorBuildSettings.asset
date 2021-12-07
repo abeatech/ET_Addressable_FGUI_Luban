@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Map.unity
     guid: a5294483f20f40d449699101bb428cda
   m_configObjects:
+    addressableimportsettings: {fileID: 11400000, guid: 57946b6abb956ef49a0919c2e9fb695b,
+      type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 9138abb319cdce84890e220a97813541,
       type: 2}

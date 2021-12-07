@@ -15,13 +15,12 @@ MonoBehaviour:
   m_GroupName: ILRuntime
   m_Data:
     m_SerializedData: []
-  m_GUID: 1fcca1f6f07efdd4a894a0b94dbf9118
+  m_GUID: 6f0f7681fba302349b483b49fb73d865
   m_SerializeEntries:
   - m_GUID: 984bf1e8159bb0343bdf79016e53ed1e
     m_Address: Code.pdb
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - ILRuntime
+    m_SerializedLabels: []
   - m_GUID: 129ae5b03bcd48f48aa175715056fa99
     m_Address: Code.dll
     m_ReadOnly: 0
@@ -30,5 +29,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: a89af19382b7a7c419e37936dfa2edeb, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: c24ff95c14e1b36409eab51b3d91951b, type: 2}
-    - {fileID: 11400000, guid: f74bb7c53b299214b9ec0b1e28ca4823, type: 2}
+    - {fileID: 11400000, guid: 480dff2f00b736a4796dd5025991cdb0, type: 2}
+    - {fileID: 11400000, guid: 979e63a7a05798546982536118147468, type: 2}

@@ -116,14 +116,6 @@
     <Compile Include="Codes\Model\Generate\Config\Fgui\TbFguiConfig.cs" />
     <Compile Include="Codes\Model\Generate\Config\Global\GlobalConfig.cs" />
     <Compile Include="Codes\Model\Generate\Config\Global\TbGlobal.cs" />
-    <Compile Include="Codes\Model\Generate\Config\StartServer\StartMachine.cs" />
-    <Compile Include="Codes\Model\Generate\Config\StartServer\StartProcess.cs" />
-    <Compile Include="Codes\Model\Generate\Config\StartServer\StartScene.cs" />
-    <Compile Include="Codes\Model\Generate\Config\StartServer\StartZone.cs" />
-    <Compile Include="Codes\Model\Generate\Config\StartServer\TbStartMachine.cs" />
-    <Compile Include="Codes\Model\Generate\Config\StartServer\TbStartProcess.cs" />
-    <Compile Include="Codes\Model\Generate\Config\StartServer\TbStartScene.cs" />
-    <Compile Include="Codes\Model\Generate\Config\StartServer\TbStartZone.cs" />
     <Compile Include="Codes\Model\Generate\Config\Tables.cs" />
     <Compile Include="Codes\Model\Generate\Message\OuterMessage.cs" />
     <Compile Include="Codes\Model\Generate\Message\OuterOpcode.cs" />
@@ -722,7 +714,9 @@
       <Name>Unity.ThirdParty</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Codes\Model\Generate\Config\StartServer\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

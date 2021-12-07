@@ -17,26 +17,22 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: b21b7383ddcd39e469ff9923843faf42
   m_SerializeEntries:
-  - m_GUID: fe673316f5b469c4ea563f43a340c44d
-    m_Address: demo_tbaimetas
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Config
-  - m_GUID: c39a5f5c6eddebe49a02d51a1203d8cd
-    m_Address: demo_tbunitmeta
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Config
-  - m_GUID: bf6db01da00b3c843aac9af49c47811a
-    m_Address: fgui_tbfguiconfig
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Config
   - m_GUID: 39bc1c8ffc71e95469b58c408c9e9ce7
     m_Address: global_tbglobal
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Config
+    m_SerializedLabels: []
+  - m_GUID: bf6db01da00b3c843aac9af49c47811a
+    m_Address: fgui_tbfguiconfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c39a5f5c6eddebe49a02d51a1203d8cd
+    m_Address: demo_tbunitmeta
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fe673316f5b469c4ea563f43a340c44d
+    m_Address: demo_tbaimetas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a89af19382b7a7c419e37936dfa2edeb, type: 2}
   m_SchemaSet:
