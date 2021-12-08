@@ -17,12 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6f0f7681fba302349b483b49fb73d865
   m_SerializeEntries:
-  - m_GUID: 984bf1e8159bb0343bdf79016e53ed1e
-    m_Address: Code.pdb
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 129ae5b03bcd48f48aa175715056fa99
     m_Address: Code.dll
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 984bf1e8159bb0343bdf79016e53ed1e
+    m_Address: Code.pdb
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
