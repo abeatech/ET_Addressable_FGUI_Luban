@@ -59,3 +59,9 @@ Server/.DS_Store
 /Unity/*/*.csproj.user
 /Excel/~$*.xlsx
 .cache.meta
+#新增忽略列表
+Unity/Assets/AddressableAssetsData/AssetGroups/ILRuntime.asset
+Unity/ProjectSettings/ProjectVersion.txt
+Unity/Unity.AddressableImporter.Editor.csproj
+Unity/Unity.Mono.csproj
+Unity/Unity.ThirdParty.csproj
