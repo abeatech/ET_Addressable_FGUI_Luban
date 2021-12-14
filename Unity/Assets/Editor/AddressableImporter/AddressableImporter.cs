@@ -9,7 +9,7 @@ using System.Linq;
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
-using UnityEditor.Experimental.SceneManagement;
+
 
 public class AddressableImporter : AssetPostprocessor
 {
@@ -44,7 +44,7 @@ public class AddressableImporter : AssetPostprocessor
         var dirty = false;
 
         // Apply import rules.
-        var prefabStage = PrefabStageUtility.GetCurrentPrefabStage();
+        var prefabStage = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage();
 #if UNITY_2020_1_OR_NEWER
         string prefabAssetPath = prefabStage != null ? prefabStage.assetPath : null;
 #else
