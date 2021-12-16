@@ -68,5 +68,5 @@ Server/.DS_Store
 
 /Unity/Assembly-CSharp.csproj
 /Unity/*/*.csproj.user
-/Excel/~$*.xlsx
+~$*.xlsx
 .cache.meta
