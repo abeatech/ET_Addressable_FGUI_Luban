@@ -17,7 +17,7 @@ MonoBehaviour:
   - path: Assets/Bundles/Code/*
     matchType: 0
     groupName: ILRuntime
-    LabelMode: 0
+    LabelMode: 1
     labelRefs: []
     dynamicLabels: []
     groupTemplate: {fileID: 11400000, guid: a5805723342d07b46a344fc48ebbed1c, type: 2}
@@ -27,7 +27,7 @@ MonoBehaviour:
   - path: Assets/Bundles/FGUI/*
     matchType: 0
     groupName: FGUI
-    LabelMode: 0
+    LabelMode: 1
     labelRefs: []
     dynamicLabels: []
     groupTemplate: {fileID: 11400000, guid: a5805723342d07b46a344fc48ebbed1c, type: 2}

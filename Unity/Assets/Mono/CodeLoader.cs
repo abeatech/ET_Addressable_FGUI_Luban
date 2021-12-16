@@ -8,7 +8,7 @@ using UnityEngine.AddressableAssets;
 
 namespace ET
 {
-	public class CodeLoader
+	public class CodeLoader : IDisposable
 	{
 		public static CodeLoader Instance = new CodeLoader();
 
@@ -18,15 +18,24 @@ namespace ET
 
 		private Assembly assembly;
 
+		private ILRuntime.Runtime.Enviorment.AppDomain appDomain;
+
 		private Type[] allTypes;
+
+		public CodeMode CodeMode { get; set; }
 
 		private CodeLoader()
 		{
 		}
 
-		public async void Start()
+		public void Dispose()
 		{
-			switch (Init.Instance.CodeMode)
+			this.appDomain?.Dispose();
+		}
+
+		public void Start()
+		{
+			switch (this.CodeMode)
 			{
 				case CodeMode.Mono:
 					{
@@ -48,7 +57,10 @@ namespace ET
 						byte[] assBytes = dll.bytes;
 						byte[] pdbBytes = pdb.bytes;
 
-						ILRuntime.Runtime.Enviorment.AppDomain appDomain = new ILRuntime.Runtime.Enviorment.AppDomain();
+						//byte[] assBytes = File.ReadAllBytes(Path.Combine("../Unity/", Define.BuildOutputDir, "Code.dll"));
+						//byte[] pdbBytes = File.ReadAllBytes(Path.Combine("../Unity/", Define.BuildOutputDir, "Code.pdb"));
+
+						appDomain = new ILRuntime.Runtime.Enviorment.AppDomain();
 						MemoryStream assStream = new MemoryStream(assBytes);
 						MemoryStream pdbStream = new MemoryStream(pdbBytes);
 						appDomain.LoadAssembly(assStream, pdbStream, new ILRuntime.Mono.Cecil.Pdb.PdbReaderProvider());
@@ -66,7 +78,7 @@ namespace ET
 						byte[] pdbBytes = File.ReadAllBytes(Path.Combine(Define.BuildOutputDir, "Data.pdb"));
 
 						assembly = Assembly.Load(assBytes, pdbBytes);
-						LoadHotfix();
+						this.LoadLogic();
 						IStaticMethod start = new MonoStaticMethod(assembly, "ET.Entry", "Start");
 						start.Run();
 						break;
@@ -75,11 +87,16 @@ namespace ET
 		}
 
 		// 热重载调用下面三个方法
-		// CodeLoader.Instance.LoadHotfix();
+		// CodeLoader.Instance.LoadLogic();
 		// Game.EventSystem.Add(CodeLoader.Instance.GetTypes());
 		// Game.EventSystem.Load();
-		public void LoadHotfix()
+		public void LoadLogic()
 		{
+			if (this.CodeMode != CodeMode.Reload)
+			{
+				throw new Exception("CodeMode != Reload!");
+			}
+
 			// 傻屌Unity在这里搞了个傻逼优化，认为同一个路径的dll，返回的程序集就一样。所以这里每次编译都要随机名字
 			string[] logicFiles = Directory.GetFiles(Define.BuildOutputDir, "Logic_*.dll");
 			if (logicFiles.Length != 1)

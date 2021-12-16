@@ -43,11 +43,10 @@ namespace ILRuntime.Runtime.Generated
             UnityEngine_Vector3_Binding.Register(app);
             UnityEngine_Vector4_Binding.Register(app);
             ET_TimeHelper_Binding.Register(app);
-            ET_AsyncETVoidMethodBuilder_Binding.Register(app);
+            ET_ETAsyncTaskMethodBuilder_Binding.Register(app);
             ET_Log_Binding.Register(app);
             ET_ETTask_1_Boolean_Binding.Register(app);
             ET_ETTask_1_Int32_Binding.Register(app);
-            ET_ETAsyncTaskMethodBuilder_Binding.Register(app);
             ET_ETTask_1_ILTypeInstance_Binding.Register(app);
             ET_ETTask_Binding.Register(app);
             ET_NetworkHelper_Binding.Register(app);
@@ -70,7 +69,6 @@ namespace ILRuntime.Runtime.Generated
             System_Linq_Enumerable_Binding.Register(app);
             System_Collections_Generic_List_1_Int64_Binding.Register(app);
             System_Collections_Generic_Dictionary_2_String_ILTypeInstance_Binding.Register(app);
-            ET_ETVoid_Binding.Register(app);
             System_Collections_Generic_HashSet_1_Type_Binding.Register(app);
             System_Collections_Generic_HashSet_1_Type_Binding_Enumerator_Binding.Register(app);
             System_Activator_Binding.Register(app);
