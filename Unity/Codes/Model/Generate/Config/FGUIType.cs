@@ -12,20 +12,24 @@ namespace Cfg
     public enum FGUIType
     {
         /// <summary>
+        /// 0
+        /// </summary>
+        Default = 0,
+        /// <summary>
         /// 1
         /// </summary>
-        Loading = 0,
+        Loading = 1,
         /// <summary>
         /// 2
         /// </summary>
-        Login = 1,
+        Login = 2,
         /// <summary>
         /// 3
         /// </summary>
-        Background = 2,
+        Background = 3,
         /// <summary>
         /// 4
         /// </summary>
-        Lobby = 3,
+        Lobby = 4,
     }
 }

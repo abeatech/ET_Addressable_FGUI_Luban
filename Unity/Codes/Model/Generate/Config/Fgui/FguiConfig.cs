@@ -23,7 +23,6 @@ public sealed class FguiConfig :  Bright.Config.BeanBase
         Path = _buf.ReadString();
         PackageName = _buf.ReadString();
         ComponentName = _buf.ReadString();
-        ClassName = _buf.ReadString();
         Layer = (Enums.FGUILayer)_buf.ReadInt();
     }
 
@@ -53,10 +52,6 @@ public sealed class FguiConfig :  Bright.Config.BeanBase
     /// </summary>
     public string ComponentName { get; private set; }
     /// <summary>
-    /// 类名
-    /// </summary>
-    public string ClassName { get; private set; }
-    /// <summary>
     /// 层级，这个枚举在Defines\enums_define.xml中
     /// </summary>
     public Enums.FGUILayer Layer { get; private set; }
@@ -80,7 +75,6 @@ public sealed class FguiConfig :  Bright.Config.BeanBase
         + "Path:" + Path + ","
         + "PackageName:" + PackageName + ","
         + "ComponentName:" + ComponentName + ","
-        + "ClassName:" + ClassName + ","
         + "Layer:" + Layer + ","
         + "}";
     }
