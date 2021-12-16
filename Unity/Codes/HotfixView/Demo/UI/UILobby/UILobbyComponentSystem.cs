@@ -19,7 +19,16 @@ namespace ET
 		}
 		public override void OnShow(UILobbyComponent self)
 		{
-			//TODO
 		}
+        public override void OnRefresh(UILobbyComponent self)
+        {
+		}
+		public override void OnHide(UILobbyComponent self)
+		{
+		}
+		public override void OnDestroy(UILobbyComponent self)
+		{
+		}
+
 	}
 }

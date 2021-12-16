@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace ET
 {
+    [FGUIComponent(Cfg.FGUIType.Login)]
     public class UILoginComponent : Entity
     {
         [FGUIObject]

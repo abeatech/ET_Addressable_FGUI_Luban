@@ -21,6 +21,19 @@ namespace ET
                 return;
             }
             FGUIComponent.Instance = self;
+
+            var fguiTypes = Game.EventSystem.GetTypes(typeof(FGUIComponentAttribute));
+            foreach (Type type in fguiTypes)
+            {
+                object[] attrs = type.GetCustomAttributes(typeof(FGUIComponentAttribute), false);
+                if (attrs.Length == 0)
+                {
+                    continue;
+                }
+
+                FGUIComponentAttribute uiEventAttribute = attrs[0] as FGUIComponentAttribute;
+                self.TypeDict.Add(uiEventAttribute.UIType, type);
+            }
         }
     }
     public class FGUIDestroySystem : DestroySystem<FGUIComponent>
@@ -31,7 +44,7 @@ namespace ET
 
         }
     }
-    public static class FGUISystem
+    public static class FGUIComponentSystem
     {
         public static async void OnLoadResourceFinished(string name, string extension, System.Type type, PackageItem item)
         {
@@ -78,11 +91,13 @@ namespace ET
                     gCom.sortingOrder = (int)config.Layer * 100;
                     gCom.displayObject.name = config.ComponentName;
                     GRoot.inst.AddChild(gCom);
-                    Type type = Type.GetType(config.ClassName);
-                    if(type == null)
+                    if(!self.TypeDict.TryGetValue(uiType, out Type type))
                     {
-                        //如果没指定的类就默认用UIDefaultComponent
-                        type = typeof(UIDefaultComponent);
+                        type = self.TypeDict[FGUIType.Default];
+                        if(type == null)
+                        {
+                            Log.Error("没有定义好Default作为Fallback"); 
+                        }
                     }
                     FGUIEntity entity = self.AddChild<FGUIEntity, Type, FGUIType>(type, uiType);
                     Entity component = entity.AddComponent(type);

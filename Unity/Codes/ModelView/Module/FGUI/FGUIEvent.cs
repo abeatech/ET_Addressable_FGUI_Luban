@@ -9,36 +9,36 @@ namespace ET
         void InvokeOnRefresh(object obj);
         void InvokeOnDestroy(object obj);
     }
-    public abstract class FGUIEvent<T> : IFGUIEvent
+    public abstract class FGUIEvent<T> : IFGUIEvent where T : class
     {
         public void InvokeOnCreate(object obj)
         {
-            OnCreate((T)obj);
+            this.OnCreate((T)obj);
         }
         public void InvokeOnShow(object obj)
         {
-            OnShow((T)obj);
+            this.OnShow((T)obj);
         }
 
         public void InvokeOnHide(object obj)
         {
-            OnHide((T)obj);
+            this.OnHide((T)obj);
         }
 
         public void InvokeOnRefresh(object obj)
         {
-            OnRefresh((T)obj);
+            this.OnRefresh((T)obj);
         }
 
         public void InvokeOnDestroy(object obj)
         {
-            OnDestroy((T)obj);
+            this.OnDestroy((T)obj);
         }
 
-        public virtual void OnCreate(T self) { }
-        public virtual void OnShow(T self) { }
-        public virtual void OnHide(T self) { }
-        public virtual void OnRefresh(T self) { }
-        public virtual void OnDestroy(T self) { }
+        public abstract void OnCreate(T self);
+        public abstract void OnShow(T self);
+        public abstract void OnHide(T self);
+        public abstract void OnRefresh(T self);
+        public abstract void OnDestroy(T self);
     }
 }

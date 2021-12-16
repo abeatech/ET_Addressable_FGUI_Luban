@@ -83,6 +83,15 @@ namespace ET
         {
             component.Txt_Tips.text = "鹅鹅鹅鹅鹅鹅饿";
         }
+        public override void OnRefresh(UILoginComponent self)
+        {
+        }
+        public override void OnHide(UILoginComponent self)
+        {
+        }
+        public override void OnDestroy(UILoginComponent self)
+        {
+        }
     }
 
     public class UILoginComponentUpdateSystem : UpdateSystem<UILoginComponent>
@@ -107,6 +116,7 @@ namespace ET
                     nextFocus.RequestFocus();
                 }
             }
+            self.Txt_Tips.text = "测试重重载";
         }
     }
 }

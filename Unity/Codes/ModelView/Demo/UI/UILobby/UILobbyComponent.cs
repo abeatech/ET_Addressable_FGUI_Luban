@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace ET
 {
+	[FGUIComponent(Cfg.FGUIType.Lobby)]
     public class UILobbyComponent : UIDefaultComponent
 	{
 		[FGUIObject]
