@@ -58,3 +58,9 @@ Server/.DS_Store
 /Unity/*/*.csproj.user
 /Excel/~$*.xlsx
 .cache.meta
+
+
+/Unity/Assets/Bundles/Code/Code.dll.bytes
+/Unity/Assets/Bundles/Code/Code.dll.bytes.meta
+/Unity/Assets/Bundles/Code/Code.pdb.bytes
+/Unity/Assets/Bundles/Code/Code.pdb.bytes.meta
