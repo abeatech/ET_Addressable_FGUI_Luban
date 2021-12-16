@@ -14,11 +14,7 @@ namespace ET
             return 1;
         }
 
-<<<<<<< HEAD
-        public override async ETVoid Execute(AIComponent aiComponent, Cfg.Demo.AIMeta aiConfig, ETCancellationToken cancellationToken)
-=======
-        public override async ETTask Execute(AIComponent aiComponent, AIConfig aiConfig, ETCancellationToken cancellationToken)
->>>>>>> 15b8fb9bdedc02cd1f9842980bd08858d9bb7c18
+        public override async ETTask Execute(AIComponent aiComponent, Cfg.Demo.AIMeta aiConfig, ETCancellationToken cancellationToken)
         {
             Scene zoneScene = aiComponent.DomainScene();
 
