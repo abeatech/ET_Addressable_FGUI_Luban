@@ -11,11 +11,6 @@ namespace ET
         void BeginInit();
         void EndInit();
     }
-
-    public interface IDisposable
-    {
-        void Dispose();
-    }
 #endif
     
     public abstract class ProtoObject: Object, ISupportInitialize
