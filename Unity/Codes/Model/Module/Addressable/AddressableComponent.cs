@@ -123,7 +123,6 @@ namespace ET
         {
             var op = Addressables.LoadAssetAsync<T>(assetPath);
             T asset = op.WaitForCompletion();
-            Addressables.Release(op);
             return asset;
         }
         /// <summary>

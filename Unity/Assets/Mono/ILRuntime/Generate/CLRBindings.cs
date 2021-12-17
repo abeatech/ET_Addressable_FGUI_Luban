@@ -109,6 +109,7 @@ namespace ILRuntime.Runtime.Generated
             System_Collections_Generic_HashSet_1_String_Binding.Register(app);
             UnityEngine_AnimationClip_Binding.Register(app);
             UnityEngine_Debug_Binding.Register(app);
+            System_Collections_Generic_Dictionary_2_Int32_Type_Binding.Register(app);
             System_Runtime_CompilerServices_AsyncVoidMethodBuilder_Binding.Register(app);
             FairyGUI_GRoot_Binding.Register(app);
             FairyGUI_GComponent_Binding.Register(app);
