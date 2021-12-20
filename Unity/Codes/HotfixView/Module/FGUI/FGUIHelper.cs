@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace ET
 {
@@ -55,6 +57,16 @@ namespace ET
         public static void AddButtonListener(GButton button,Action action)
         {
             button.onClick.Add(()=>action?.Invoke());
+        }
+        public static ETTask<GObject> CreateObjectAsync(string pkgName, string resName)
+        {
+            ETTask<GObject> tcs = ETTask<GObject>.Create(true);
+            UIPackage.CreateObjectAsync(pkgName, resName, (go) =>
+            {
+                tcs.SetResult(go);
+                tcs = null;
+            });
+            return tcs.GetAwaiter();
         }
     }
 }

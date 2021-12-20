@@ -73,44 +73,43 @@ namespace ET
         {
             try
             {
+                FGUIEntity entity = null;
                 if (self.UIDict.ContainsKey(uiType))
                 {
-                    FGUIEntity entity = self.UIDict[uiType];
+                    entity = self.UIDict[uiType];
                     GRoot.inst.AddChild(entity.GObject);//显示到最上层
                     self.Event.OnRefresh(entity);
                     return;
                 }
                 await self.InitBasePackage();
-                
+
                 FguiConfig config = ConfigUtil.Tables.TbFguiConfig.Get(uiType);
                 await AddressableComponent.Instance.AddFGUIPackageAsync(config.Path);
                 GComponent gCom = null;
-                UIPackage.CreateObjectAsync(config.PackageName, config.ComponentName, (go) =>
+                GObject go = await FGUIHelper.CreateObjectAsync(config.PackageName, config.ComponentName);
+                gCom = go as GComponent;
+                gCom.sortingOrder = (int)config.Layer * 100;
+                gCom.displayObject.name = config.ComponentName;
+                GRoot.inst.AddChild(gCom);
+                if (!self.TypeDict.TryGetValue(uiType, out Type type))
                 {
-                    gCom = go as GComponent;
-                    gCom.sortingOrder = (int)config.Layer * 100;
-                    gCom.displayObject.name = config.ComponentName;
-                    GRoot.inst.AddChild(gCom);
-                    if(!self.TypeDict.TryGetValue(uiType, out Type type))
+                    type = self.TypeDict[FGUIType.Default];
+                    if (type == null)
                     {
-                        type = self.TypeDict[FGUIType.Default];
-                        if(type == null)
-                        {
-                            Log.Error("没有定义好Default作为Fallback"); 
-                        }
+                        Log.Error("没有定义好Default作为Fallback");
                     }
-                    FGUIEntity entity = self.AddChild<FGUIEntity, Type, FGUIType>(type, uiType);
-                    Entity component = entity.AddComponent(type);
-                    if(component == null)
-                    {
-                        Log.Error($"打开UI错误，类型为空: {type.Name}");
-                    }
-                    entity.AddComponent<GObjectComponent, GObject>(gCom);
-                    FGUIHelper.BindRoot(type, component, gCom);
-                    self.Event.OnCreate(entity);
-                    self.Event.OnShow(entity);
-                    self.UIDict.Add(uiType, entity);
-                });
+                }
+                entity = self.AddChild<FGUIEntity, Type, FGUIType>(type, uiType);
+                Entity component = entity.AddComponent(type);
+                if (component == null)
+                {
+                    Log.Error($"打开UI错误，类型为空: {type.Name}");
+                }
+                entity.AddComponent<GObjectComponent, GObject>(gCom);
+                FGUIHelper.BindRoot(type, component, gCom);
+                self.Event.OnCreate(entity);
+                self.Event.OnShow(entity);
+                self.UIDict.Add(uiType, entity);
             }
             catch (Exception e)
             {
